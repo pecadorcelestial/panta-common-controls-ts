@@ -1,8 +1,8 @@
-# &#128060; Panda Common Controls
+# &#128060; Panda Common Controls + TS
 
-[![npm version](https://badge.fury.io/js/panda-common-controls.svg)](https://badge.fury.io/js/panda-common-controls)
-[![Build Status](https://travis-ci.org/pecadorcelestial/panda-common-controls.svg?branch=master)](https://travis-ci.org/pecadorcelestial/panda-common-controls)
-[![Coverage Status](https://coveralls.io/repos/github/pecadorcelestial/panda-common-controls/badge.svg)](https://coveralls.io/github/pecadorcelestial/panda-common-controls)
+> This library is basically the same as the [panda-common-controls](https://github.com/pecadorcelestial/panda-common-controls), but with a little more **TypeScript** and a little less *Babel*... actually is all **TypeScript** and zero *Babel*.
+>
+> So in resume, it is the same but different and still the same.
 
 This library came out as a personal project to create a list of reusable components and also as a test to build my first public module to use with NPM.
 
@@ -136,6 +136,7 @@ This includes the coverage command.
 
 ## Built With
 
+* [TypeSript](https://www.typescriptlang.org/) - For all that sweet typed coding... mmm...
 * [styled-componets](https://www.styled-components.com/) - For visuals and animations.
 * [Jest](https://jestjs.io/) - Testing sandbox.
 * [Enzyme](https://github.com/airbnb/enzyme) - JS testing utility.
