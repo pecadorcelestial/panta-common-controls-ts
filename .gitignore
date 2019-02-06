@@ -1,0 +1,8 @@
+.storybook/
+.vscode/
+bin/
+coverage/
+lib/
+node_modules/
+src/icons/icons-lib-*.js
+package-lock.json

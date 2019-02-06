@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SNAPSHOT][Componentes][Common][CheckBox] - Checkbox normal. Debe pintar el componente con los siguientes modificadores: (Checked: false). 1`] = `
+.c1 {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+}
+
+.c2 {
+  background-color: #BFBFBF;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 20px;
+  margin: 5px 0px 0px 0px;
+  width: 20px;
+}
+
+.c0:hover .c2 {
+  background-color: #A7A7A7;
+}
+
+.c3 {
+  box-sizing: border-box;
+  color: #242424;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 30px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  margin: 0px;
+  padding: 4px 0px 0px 5px;
+  text-align: left;
+  width: auto;
+  white-space: nowrap;
+}
+
+<div
+  className="c0 c1"
+  onClick={[Function]}
+>
+  <div
+    checked={false}
+    className="c2"
+  />
+  <label
+    checked={false}
+    className="c3"
+  />
+</div>
+`;
+
+exports[`[SNAPSHOT][Componentes][Common][CheckBox] - Checkbox normal. Debe pintar el componente con los siguientes modificadores: (Checked: false). 2`] = `
+.c1 {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+}
+
+.c0:hover .c4 {
+  background-color: #A7A7A7;
+}
+
+.c2 {
+  background-color: #1476FB;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 20px;
+  margin: 5px 0px 0px 0px;
+  width: 20px;
+}
+
+.c0:hover .c2 {
+  background-color: #11AAFF;
+}
+
+.c2:after {
+  border: solid white;
+  border-width: 0px 3px 3px 0px;
+  content: "";
+  display: block;
+  height: 10px;
+  margin: 2px 0px 0px 6px;
+  width: 5px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.c3 {
+  box-sizing: border-box;
+  color: #242424;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 30px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  margin: 0px;
+  padding: 4px 0px 0px 5px;
+  text-align: left;
+  width: auto;
+  white-space: nowrap;
+}
+
+<div
+  className="c0 c1"
+  onClick={[Function]}
+>
+  <div
+    checked={true}
+    className="c2"
+  />
+  <label
+    checked={true}
+    className="c3"
+  />
+</div>
+`;

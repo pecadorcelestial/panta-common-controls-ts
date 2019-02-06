@@ -1,0 +1,60 @@
+//Componentes generales.
+import React from 'react';
+import styled, { AnyStyledComponent } from 'styled-components';
+
+type Elevation = 4 | 8 | 10 | 14 | 18 | 32;
+
+const getCardBoxShadow = (elevation: Elevation): string => {
+    let result: string = '';
+	switch(elevation) {
+		case 4:
+            result = `box-shadow:  0px 0px 4px 1px rgba(0, 0, 0, 0.05);`;
+            break;
+		case 8:
+			result = `box-shadow:  0px 0px 8px 1px rgba(0, 0, 0, 0.05);`;
+            break;
+		case 10:
+			result = `box-shadow:  0px 0px 10px 1px rgba(0, 0, 0, 0.1);`;
+            break;
+		case 14:
+			result = `box-shadow:  0px 0px 14px 1px rgba(0, 0, 0, 0.1);`;
+            break;
+		case 18:
+			result = `box-shadow:  0px 0px 18px 1px rgba(0, 0, 0, 0.1);`;
+            break;
+		case 32:
+		default:
+			result = `box-shadow:  0px 0px 32px 1px rgba(0, 0, 0, 0.1);`;
+            break;
+    }
+    return result;
+};
+
+interface ICard {
+    elevation: Elevation;
+    width: string;
+};
+export const Card: AnyStyledComponent<ICard & React.HTMLProps<HTMLDivElement>, any, any> = styled.div`
+    background-color: #FFF;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: auto;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    width: ${(props: ICard & React.HTMLProps<HTMLDivElement>) => props.width ? props.width : `auto`};
+
+    transition: all .3s;
+        
+    ${(props: ICard & React.HTMLProps<HTMLDivElement>) => getCardBoxShadow(props.elevation)}		
+
+    @media screen and (max-width: 767px) {
+        border-radius: 0px;
+        box-shadow: unset;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+        border-radius: 0px;
+        box-shadow: unset;
+    }
+`;
