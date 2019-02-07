@@ -10,8 +10,8 @@ import { Icon } from '../icons/icons';
 //C     O   O N  NN        T   E     M   M A   A
 // CCCC  OOO  N   N        T   EEEEE M   M A   A
 
-type Size = 'small' | 'medium' | 'big';
-type Theme = 'red' | 'secondaryRed' | 'flatRed' | 'blue' | 'secondaryBlue' | 'flatBlue' | 'green' | 'secondaryGreen' | 'flatGreen' | 'yellow' | 'secondaryYellow' | 'flatYellow' | 'gray' | 'secondaryGray' | 'flatGray' | 'flatWhite' | 'orange' | 'secondaryOrange' | 'flatOrange' | 'black' | 'secondaryBlack' | 'flatBlack' | 'IENTC' | 'secondaryIENTC' | 'flatIENTC';
+export type Size = 'small' | 'medium' | 'big';
+export type Theme = 'red' | 'secondaryRed' | 'flatRed' | 'blue' | 'secondaryBlue' | 'flatBlue' | 'green' | 'secondaryGreen' | 'flatGreen' | 'yellow' | 'secondaryYellow' | 'flatYellow' | 'gray' | 'secondaryGray' | 'flatGray' | 'flatWhite' | 'orange' | 'secondaryOrange' | 'flatOrange' | 'black' | 'secondaryBlack' | 'flatBlack' | 'IENTC' | 'secondaryIENTC' | 'flatIENTC';
 
 const backgroundColor = (theme: Theme): string => {
 	let result: string = '';

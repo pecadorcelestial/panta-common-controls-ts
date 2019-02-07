@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { Loading, Animate } from '../animations/animations';
 import { Badge, IconBadge, NotificationBadge } from '../badges/badges';
 import { Button, IconButton, RoundButton } from '../buttons/buttons';
+import { Calendar } from '../calendar/calendar';
 import { Card } from '../cards/cards';
 import { CheckBox } from '../checkboxes/checkboxes';
 import { BasicSelect, AdvancedSelect } from '../dropdownlists/dropdownlists';
@@ -355,6 +356,18 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
                         <NotificationBadge counter='4' style={{ marginRight: '20px' }}>
                             <Title style={{ padding: '0px 10px' }}>Any given text</Title>
                         </NotificationBadge>
+                    </Row>
+                    <Title style={{ marginTop: '20px' }}>Calendar:</Title>
+                    <Row>
+                        <Calendar
+                            selectedDate='08/15/2018'
+                            language='en-EU'
+                            mode='month'
+                            theme='default'
+                            onChange={(date: Date) => {
+                                console.log('[EXAMPLE][render][CALENDAR][onChange] Date: ', date);
+                            }}
+                        />
                     </Row>
                     <Card elevation={32} width='auto' style={{ marginTop: '20px', padding: '10px' }}>
                         <Title>Buttons and Card:</Title>
