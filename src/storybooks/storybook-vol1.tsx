@@ -12,6 +12,7 @@ import { BasicSelect, AdvancedSelect } from '../dropdownlists/dropdownlists';
 import { CircularGraph } from '../graphs/graphs';
 import { Icon } from '../icons/icons';
 import { RadioButton, RadioButtonsGroup } from '../radiobuttons/radiobuttons';
+import { Tabs } from '../tabs/tabs';
 
 const Layout = styled.div`
     display: inline-block;
@@ -197,19 +198,40 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
 
         const radioButtons = [
             {
-                name: "Option #1",
+                name: 'Option #1',
                 value: 1
             },
             {
-                name: "Option #2",
+                name: 'Option #2',
                 value: 2
             },
             {
-                name: "Option #3",
+                name: 'Option #3',
                 value: 3
             }
         ];
       
+        const tabs = [
+            {
+                id: 'tab-1',
+                title: 'Tab #1',
+                icon: 'brandWhatsappSquare',
+                content: <Title>Whatsapp</Title>
+            },
+            {
+                id: 'tab-2',
+                title: 'Tab #2',
+                icon: 'brandFacebookSquare',
+                content: <Title>Facebook</Title>
+            },
+            {
+                id: 'tab-3',
+                title: 'Tab #3',
+                icon: 'brandReact',
+                content: <Title>React</Title>
+            }
+        ];
+  
 		//PPPP  RRRR   OOO  PPPP  IIIII EEEEE DDDD   AAA  DDDD  EEEEE  SSSS
 		//P   P R   R O   O P   P   I   E     D   D A   A D   D E     S
 		//PPPP  RRRR  O   O PPPP    I   EEE   D   D AAAAA D   D EEE    SSS
@@ -389,13 +411,17 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
                     </Row>
                     <Title style={{ marginTop: '20px' }}>Radio Buttons:</Title>
                     <Row>
-                    <RadioButtonsGroup
-                        options={radioButtons}
-                        selectedValue={2}
-                        onChange={(value: string | number) => {
-                            console.log("[EXAMPLE][RADIOBUTTONS][onChange] Value: ", value);
-                        }}
-                    />
+                        <RadioButtonsGroup
+                            options={radioButtons}
+                            selectedValue={2}
+                            onChange={(value: string | number) => {
+                                console.log('[EXAMPLE][RADIOBUTTONS][onChange] Value: ', value);
+                            }}
+                        />
+                    </Row>
+                    <Title style={{ marginTop: '20px' }}>Tabs:</Title>
+                    <Row>
+                        <Tabs tabs={tabs} theme='blue' />
                     </Row>
                 </RightColumn>
             </Layout>
