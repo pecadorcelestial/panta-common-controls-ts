@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { createRef, HTMLProps } from 'react';
+import React, { createRef, HTMLProps, HTMLAttributes } from 'react';
 import styled, { ThemeProvider, StyledComponent } from 'styled-components';
 import theme from 'styled-theming';
 
@@ -190,7 +190,7 @@ const Error: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
 //C     O   O M   M P     O   O N  NN E     N  NN   T   E
 // CCCC  OOO  M   M P      OOO  N   N EEEEE N   N   T   EEEEE
 
-interface ISelectProps {
+interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
 	//Obligatorios.
 	title: string;		
 	error: string;

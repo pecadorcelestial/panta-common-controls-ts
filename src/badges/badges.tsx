@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps, HTMLAttributes } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 import { Icon, IIconProps } from '../icons/icons';
@@ -278,8 +278,8 @@ const CloseButton: StyledComponent<"svg", any, ICloseButtonProps & React.SVGProp
 
 `;
 
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-interface IBadgeProps extends Omit<HTMLProps<HTMLLabelElement>, 'size'> {
+//type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+interface IBadgeProps extends HTMLAttributes<HTMLLabelElement> {
 	size: Size;
 	theme: Theme;
 	closeOnClick?: Function;
@@ -339,7 +339,7 @@ export const Badge: StyledComponent<'label', any, IBadgeProps, never> = styled((
 //https://github.com/styled-components/styled-components/issues/305
 
 //NOTA: Este componente está preparado para modificar los estilos que sean necesarios.
-interface IIconBadge extends Omit<HTMLProps<HTMLLabelElement>, 'size'> {
+interface IIconBadge extends HTMLAttributes<HTMLLabelElement> {
 	icon: string;
 	size: Size;
 	theme: Theme;
@@ -348,7 +348,7 @@ interface IIconBadge extends Omit<HTMLProps<HTMLLabelElement>, 'size'> {
 };
 //interface IIconBadge extends IIconProps{};
 export const IconBadge: StyledComponent<'label', any, IIconBadge, never> = styled((props: IIconBadge) => {
-	let { className, theme, size, icon, closeOnClick, children, ref, as, ...rest} = props;
+	let { className, theme, size, icon, closeOnClick, children, ...rest} = props;
 	return <Badge className={className} theme={theme} size={size} closeOnClick={closeOnClick} {...rest}>{children}</Badge>;
 })`
     padding: 0px 5px 0px 5px;

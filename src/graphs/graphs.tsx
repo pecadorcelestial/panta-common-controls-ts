@@ -1,5 +1,5 @@
 //Modulos generales.
-import React, { Component, HTMLProps } from 'react';
+import React, { Component, HTMLProps, HTMLAttributes } from 'react';
 import styled, { css, keyframes, Keyframes, StyledComponent } from 'styled-components';
 
 type Theme = 'red' | 'blue' | 'green' | 'yellow' | 'gray' | 'orange' | 'black' | 'IENTC';
@@ -70,13 +70,13 @@ const Text: StyledComponent<'text', any, IInnerPathProps & HTMLProps<HTMLTextAre
     text-anchor: middle;
 `;
 
-interface ICircularGraphProps extends HTMLProps<HTMLDivElement> {
+interface ICircularGraphProps extends HTMLAttributes<HTMLDivElement> {
     theme: Theme;
     percent: number;
 };
 export class CircularGraph extends Component<ICircularGraphProps, {}> {
     render() {
-        let { theme, percent, ref, as, ...rest } = this.props;
+        let { theme, percent, ...rest } = this.props;
         return(
             <Layout {...rest}>
                 <SVG viewBox="0 0 36 36">

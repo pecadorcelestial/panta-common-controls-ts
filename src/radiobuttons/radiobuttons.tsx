@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { Component, HTMLProps } from 'react';
+import React, { Component, HTMLProps, HTMLAttributes } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 const Input: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
@@ -22,10 +22,10 @@ const Input: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
     white-space: nowrap;
 `;
 
-interface ICheckMarkProps {
+interface ICheckMarkProps extends HTMLAttributes<HTMLDivElement> {
     checked: boolean;
 };
-const CheckMark: StyledComponent<'div', any, ICheckMarkProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const CheckMark: StyledComponent<'div', any, ICheckMarkProps, never> = styled.div`
     background-color: ${(props: ICheckMarkProps) => props.checked ? `#1476FB`: `#BFBFBF`};
     border: none;
     border-radius: 50%;
@@ -59,7 +59,9 @@ const CheckMark: StyledComponent<'div', any, ICheckMarkProps & HTMLProps<HTMLDiv
         }` : ``}
 `;
 
-interface IRadioButtonProps extends ICheckMarkProps {
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+interface IRadioButtonProps extends Omit<HTMLAttributes<HTMLLabelElement>, 'onChange'> {
+    checked: boolean;
     value: string | number;
     onChange?: (event: string | number) => void;
 };
@@ -103,7 +105,7 @@ interface IOption {
     name: string;
     value: string | number;
 };
-interface IRadioButtonsGroupProps {
+interface IRadioButtonsGroupProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
     options: Array<IOption>;
     selectedValue: string | number;
     onChange?: Function;
@@ -128,11 +130,12 @@ export class RadioButtonsGroup extends Component<IRadioButtonsGroupProps, IRadio
     }
     //*** RESULTADO ***
     render() {
+        let { options, selectedValue, onChange, ...rest } = this.props;
         return(
-            <Layout>
+            <Layout {...rest}>
                 <Buttons>
                     {
-                        this.props.options.map((option, index) => <RadioButton key={`rbt-opt-${index}`} value={option.value} checked={option.value == this.state.selectedValue} onChange={(value: string | number) => { this.setState({ selectedValue: value }); if(this.props.onChange) { this.props.onChange(value); } }}>{option.name}</RadioButton>)
+                        options.map((option, index) => <RadioButton key={`rbt-opt-${index}`} value={option.value} checked={option.value == this.state.selectedValue} onChange={(value: string | number) => { this.setState({ selectedValue: value }); if(onChange) { onChange(value); } }}>{option.name}</RadioButton>)
                     }
                 </Buttons>
             </Layout>

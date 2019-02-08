@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { createRef, HTMLProps } from 'react';
+import React, { createRef, HTMLProps, HTMLAttributes } from 'react';
 import styled, { css, keyframes, Keyframes, StyledComponent } from 'styled-components';
 
 //L      OOO   AAA  DDDD  IIIII N   N  GGGG
@@ -435,7 +435,7 @@ const Animation: StyledComponent<'div', any, IAnimationProps & HTMLProps<HTMLDiv
 	animation: ${(props: IAnimationProps) => (props.entrance && !props.exit) ? animationEntrance : animationExit };
 `;
 
-interface IAnimateClassProps {
+interface IAnimateClassProps extends HTMLAttributes<HTMLDivElement> {
 	type: 'flip' | 'fade' | 'zoom';
 	from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal';
 	enterWithBounce: boolean;

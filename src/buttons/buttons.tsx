@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLProps } from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 import { Icon } from '../icons/icons';
@@ -842,8 +842,8 @@ const iconSize = (size: Size): string => {
 	return result;
 };
 
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-interface IButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'size'> {
+//type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
 	theme: Theme;
 	size: Size;
 };
@@ -919,7 +919,7 @@ interface IIconButtonProps extends IButtonProps {
 	icon: string;
 };
 export const IconButton: StyledComponent<'button', any, IIconButtonProps, never> = styled((props: IIconButtonProps) => {
-	let { className, theme, size, children, ref, as, ...rest} = props;
+	let { className, theme, size, children, ...rest} = props;
 	return <Button className={className} theme={theme} size={size} {...rest}><Icon icon={props.icon} margin='0px 5px 0px 0px'/>{children}</Button>;
 })``;
 
@@ -946,7 +946,7 @@ const padding = (size: Size): string => {
 };
 
 export const RoundButton: StyledComponent<'button', any, IIconButtonProps, never> = styled((props: IIconButtonProps) => {
-	let { className, theme, size, children, ref, as, ...rest} = props;
+	let { className, theme, size, children, ...rest} = props;
 	return <Button className={className} theme={theme} size={size} {...rest}><Icon icon={props.icon}/></Button>;
 })`
 	border-radius: 50%;

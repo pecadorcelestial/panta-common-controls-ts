@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps, HTMLAttributes } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 type Elevation = 4 | 8 | 10 | 14 | 18 | 32 | undefined;
@@ -30,11 +30,11 @@ const getCardBoxShadow = (elevation: Elevation): string => {
     return result;
 };
 
-interface ICard {
+interface ICard extends HTMLAttributes<HTMLDivElement> {
     elevation?: Elevation;
-    //width: string;
+    width?: string;
 };
-export const Card: StyledComponent<'div', any, ICard & HTMLProps<HTMLDivElement>, never> = styled.div`
+export const Card: StyledComponent<'div', any, ICard, never> = styled.div`
     background-color: #FFF;
     border-radius: 5px;
     box-sizing: border-box;
@@ -42,11 +42,11 @@ export const Card: StyledComponent<'div', any, ICard & HTMLProps<HTMLDivElement>
     margin: 0px;
     overflow: hidden;
     padding: 0px;
-    width: ${(props: ICard & HTMLProps<HTMLDivElement>) => props.width ? props.width : `auto`};
+    width: ${(props: ICard) => props.width ? props.width : `auto`};
 
     transition: all .3s;
         
-    ${(props: ICard & HTMLProps<HTMLDivElement>) => getCardBoxShadow(props.elevation)}		
+    ${(props: ICard) => getCardBoxShadow(props.elevation)}		
 
     @media screen and (max-width: 767px) {
         border-radius: 0px;

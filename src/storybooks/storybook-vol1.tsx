@@ -1,5 +1,5 @@
 //Módulos generales.
-import React, { Component, HTMLProps } from 'react';
+import React, { Component, HTMLProps, createRef, RefObject } from 'react';
 import styled from 'styled-components';
 
 //Componentes locales.
@@ -14,6 +14,7 @@ import { CircularGraph } from '../graphs/graphs';
 import { Icon } from '../icons/icons';
 import { RadioButton, RadioButtonsGroup } from '../radiobuttons/radiobuttons';
 import { Tabs } from '../tabs/tabs';
+import { ToastNotification } from '../toastnotifications/toastnotifications';
 
 const Layout = styled.div`
     display: inline-block;
@@ -128,9 +129,20 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
     private AnimateFadeRef: Animate;
     private AnimateFlipRef: Animate;
     private AnimateZoomRef: Animate;
+
+    private SuccessToastNotificationRef: RefObject<HTMLDivElement & ToastNotification>;
+    private ErrorToastNotificationRef: RefObject<HTMLDivElement & ToastNotification>;
+    private WarningToastNotificationRef: RefObject<HTMLDivElement & ToastNotification>;
+    private InformationToastNotificationRef: RefObject<HTMLDivElement & ToastNotification>;
     //*** CONSTRUCTOR ***
     constructor(props: HTMLProps<HTMLDivElement>) {
         super(props);
+
+        this.SuccessToastNotificationRef = createRef();
+        this.ErrorToastNotificationRef = createRef();
+        this.WarningToastNotificationRef = createRef();
+        this.InformationToastNotificationRef = createRef();
+
         this.state = {
             //Animaciones.
             fadeFrom: 'right',
@@ -437,6 +449,17 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
                     <Title style={{ marginTop: '20px' }}>Tabs:</Title>
                     <Row>
                         <Tabs tabs={tabs} theme='blue' />
+                    </Row>
+                    <Title style={{ marginTop: '20px' }}>Toast Notifications:</Title>
+                    <Row>
+                        <Button size='small' theme='green' style={{ margin: '5px' }} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { let node: HTMLDivElement & ToastNotification | null = this.SuccessToastNotificationRef.current; if(node) node.show(); }}>Show success toast</Button>
+                        <Button size='small' theme='red' style={{ margin: '5px' }} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { let node: HTMLDivElement & ToastNotification | null = this.ErrorToastNotificationRef.current; if(node) node.show(); }}>Show error toast</Button>
+                        <Button size='small' theme='orange' style={{ margin: '5px' }} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { let node: HTMLDivElement & ToastNotification | null = this.WarningToastNotificationRef.current; if(node) node.show(); }}>Show warning toast</Button>
+                        <Button size='small' theme='blue' style={{ margin: '5px' }} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { let node: HTMLDivElement & ToastNotification | null = this.InformationToastNotificationRef.current; if(node) node.show(); }}>Show information toast</Button>
+                        <ToastNotification notificationType='success' from='bottom' side='right' title='I am a toast notification' message='Yes! I am a toast notification.' timeout={0} ref={this.SuccessToastNotificationRef} showWithBounce={true}/>
+                        <ToastNotification notificationType='error' from='bottom' side='left' title='I am a toast notification' message='Yes! I am a toast notification.' timeout={0} ref={this.ErrorToastNotificationRef}/>
+                        <ToastNotification notificationType='warning' from='top' side='right' title='I am a toast notification' message='Yes! I am a toast notification.' timeout={0} ref={this.WarningToastNotificationRef} showWithBounce={true}/>
+                        <ToastNotification notificationType='information' from='top' side='left' title='I am a toast notification' message='Yes! I am a toast notification.' timeout={0} ref={this.InformationToastNotificationRef}/>
                     </Row>
                 </RightColumn>
             </Layout>

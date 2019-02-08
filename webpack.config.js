@@ -41,7 +41,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(ts|tsx)?$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: [/(node_modules|bower_components)/, /\.test\.(ts|tsx|js|jsx)?$/],
                 use: 'ts-loader'
             }
         ]

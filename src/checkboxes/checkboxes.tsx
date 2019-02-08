@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { Component, HTMLProps } from 'react';
+import React, { Component, HTMLProps, HTMLAttributes } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 const Layout = styled.div`
@@ -11,11 +11,11 @@ const Layout = styled.div`
     width: auto;
 `;
 
-interface ICheckMarkProps {
+interface ICheckMarkProps extends HTMLAttributes<HTMLDivElement> {
     checked: boolean;
 };
-const CheckMark: StyledComponent<'div', any, ICheckMarkProps & HTMLProps<HTMLDivElement>, never> = styled.div`
-    background-color: ${(props: ICheckMarkProps & HTMLProps<HTMLDivElement>) => props.checked ? `#1476FB`: `#BFBFBF`};
+const CheckMark: StyledComponent<'div', any, ICheckMarkProps, never> = styled.div`
+    background-color: ${(props: ICheckMarkProps) => props.checked ? `#1476FB`: `#BFBFBF`};
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
@@ -27,10 +27,10 @@ const CheckMark: StyledComponent<'div', any, ICheckMarkProps & HTMLProps<HTMLDiv
     width: 20px;
     
     ${Layout}:hover & {
-        background-color: ${(props: ICheckMarkProps & HTMLProps<HTMLDivElement>) => props.checked ? `#11AAFF`: `#A7A7A7`};
+        background-color: ${(props: ICheckMarkProps) => props.checked ? `#11AAFF`: `#A7A7A7`};
     }
 
-    ${(props: ICheckMarkProps & HTMLProps<HTMLDivElement>) => props.checked ? `
+    ${(props: ICheckMarkProps) => props.checked ? `
         &:after {
             border: solid white;
             border-width: 0px 3px 3px 0px;
@@ -64,7 +64,8 @@ const Title: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
     white-space: nowrap;
 `;
 
-interface ICheckBoxProps extends ICheckMarkProps {
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+interface ICheckBoxProps extends Omit<ICheckMarkProps, 'onChange'> {
     onChange?: Function;
 };
 interface ICheckBoxState {
@@ -87,8 +88,9 @@ export class CheckBox extends Component<ICheckBoxProps, ICheckBoxState> {
     }
     //*** RESULTADO ***
     render() {
+        let { checked, onChange, ...rest} = this.props;
         return(
-            <Layout onClick={() => { let checked = !this.state.checked; this.setState({ checked }); if(this.props.onChange) this.props.onChange(checked); }}>
+            <Layout {...rest} onClick={() => { let checked = !this.state.checked; this.setState({ checked }); if(this.props.onChange) this.props.onChange(checked); }}>
                 <CheckMark checked={this.state.checked}/>
                 <Title checked={this.state.checked}>{this.props.children}</Title>
             </Layout>
