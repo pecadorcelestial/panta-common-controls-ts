@@ -25,6 +25,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (ad
   z-index: 996;
   left: 30px;
   top: -100%;
+  -webkit-animation: unset;
+  animation: unset;
 }
 
 .c1 {
@@ -80,6 +82,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (ad
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -88,6 +92,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (ad
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -112,7 +118,6 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (ad
         }
       }
       height="40px"
-      icon="solidExclamationCircle"
       viewBox="0 0 512 512"
       width="40px"
       x="0px"
@@ -156,6 +161,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (er
   z-index: 996;
   right: 30px;
   bottom: -100%;
+  -webkit-animation: unset;
+  animation: unset;
 }
 
 .c1 {
@@ -221,6 +228,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (er
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -229,6 +238,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (er
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -253,7 +264,6 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (er
         }
       }
       height="40px"
-      icon="solidTimesCircle"
       viewBox="0 0 512 512"
       width="40px"
       x="0px"
@@ -302,6 +312,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (in
   z-index: 996;
   right: 30px;
   top: -100%;
+  -webkit-animation: unset;
+  animation: unset;
 }
 
 .c1 {
@@ -357,6 +369,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (in
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -365,6 +379,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (in
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -389,7 +405,6 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (in
         }
       }
       height="40px"
-      icon="solidQuestionCircle"
       viewBox="0 0 512 512"
       width="40px"
       x="0px"
@@ -436,6 +451,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (é
   z-index: 996;
   left: 30px;
   bottom: -100%;
+  -webkit-animation: unset;
+  animation: unset;
 }
 
 .c1 {
@@ -501,6 +518,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (é
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -509,6 +528,8 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (é
     border-radius: 0px;
     left: 0px;
     width: 100%;
+    -webkit-animation: unset;
+    animation: unset;
   }
 }
 
@@ -533,7 +554,6 @@ exports[`[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (é
         }
       }
       height="40px"
-      icon="solidCheckCircle"
       viewBox="0 0 512 512"
       width="40px"
       x="0px"

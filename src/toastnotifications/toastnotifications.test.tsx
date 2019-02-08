@@ -36,7 +36,7 @@ import 'jest-styled-components';
 //C     O   O M   M P     O   O N  NN E     N  NN   T   E         S
 // CCCC  OOO  M   M P      OOO  N   N EEEEE N   N   T   EEEEE SSSS
 
-import { ToastNotification } from './toastnotifications';
+import { ToastNotification, Type, From, Side } from './toastnotifications';
 
 //Snapshot #1 (Éxito).
 describe('[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (éxito).', () => {
@@ -45,12 +45,12 @@ describe('[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (�
 		//Propiedades.		
         const notificactionProps = {
             //Obligatorios.
-            notificationType: 'success',
+            notificationType: 'success' as Type,
             title: 'Notificación tipo "tostada".',
             //Opcionales.
-            from: 'bottom',
+            //from: 'bottom' as From,
             message: 'Si, es una notificación tipo "tostada".',
-            side: 'left',
+            //side: 'left' as Side,
             timeout: 5
         };
         //Se crea el componente.
@@ -66,13 +66,13 @@ describe('[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (e
 		//Propiedades.		
         const notificactionProps = {
             //Obligatorios.
-            notificationType: 'error',
+            notificationType: 'error' as Type,
             title: 'Notificación tipo "tostada".',
             //Opcionales.
-            from: 'bottom',
+            from: 'bottom' as From,
             message: 'Si, es una notificación tipo "tostada".',
             showWithBounce: true,
-            side: 'right',
+            side: 'right' as Side,
             timeout: 5
         };
         //Se crea el componente.
@@ -88,12 +88,12 @@ describe('[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (a
 		//Propiedades.		
         const notificactionProps = {
             //Obligatorios.
-            notificationType: 'warning',
+            notificationType: 'warning' as Type,
             title: 'Notificación tipo "tostada".',
             //Opcionales.
-            from: 'top',
+            from: 'top' as From,
             //message: 'Si, es una notificación tipo "tostada".',
-            side: 'left',
+            side: 'left' as Side,
             timeout: 5
         };
         //Se crea el componente.
@@ -109,12 +109,12 @@ describe('[SNAPSHOT][Componentes][Common][ToastNotifications] - Notificación (i
 		//Propiedades.		
         const notificactionProps = {
             //Obligatorios.
-            notificationType: 'information',
+            notificationType: 'information' as Type,
             title: 'Notificación tipo "tostada".',
             //Opcionales.
-            from: 'top',
+            from: 'top' as From,
             message: <label>Si, es una notificación tipo "tostada".</label>,
-            side: 'right',
+            side: 'right' as Side,
             timeout: 5
         };
         //Se crea el componente.
@@ -128,13 +128,13 @@ describe('[FLUJO][Componentes][Common][ToastNotifications] - Se muestra la notif
     //Propiedades.
     const notificactionProps = {
         //Obligatorios.
-        notificationType: 'success',
+        notificationType: 'success' as Type,
         title: 'Notificación tipo "tostada".',
         //Opcionales.
-        from: 'bottom',
+        from: 'bottom' as From,
         message: 'Si, es una notificación tipo "tostada".',
         showWithBounce: true,
-        side: 'left',
+        side: 'left' as Side,
         timeout: 3
     };
 	//Se crea el componente.
@@ -182,12 +182,12 @@ describe('[FLUJO][Componentes][Common][ToastNotifications] - Se muestra la notif
     //Propiedades.
     const notificactionProps = {
         //Obligatorios.
-        notificationType: 'success',
+        notificationType: 'success' as Type,
         title: 'Notificación tipo "tostada".',
         //Opcionales.
-        from: 'bottom',
+        from: 'bottom' as From,
         message: 'Si, es una notificación tipo "tostada".',
-        side: 'left',
+        side: 'left' as Side,
         timeout: 0
     };
 	//Se crea el componente.
@@ -233,12 +233,12 @@ describe('[FLUJO][Componentes][Common][ToastNotifications] - Se muestra la notif
     //Propiedades.
     const notificactionProps = {
         //Obligatorios.
-        notificationType: 'success',
+        notificationType: 'success' as Type,
         title: 'Notificación tipo "tostada".',
         //Opcionales.
-        from: 'bottom',
+        from: 'bottom' as From,
         message: 'Si, es una notificación tipo "tostada".',
-        side: 'left',
+        side: 'left' as Side,
         timeout: 0
     };
 	//Se crea el componente.

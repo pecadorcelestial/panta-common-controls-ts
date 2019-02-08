@@ -239,9 +239,9 @@ const Message: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never>
 //      Por ahora sólo en Chrome y en Safari.
 //https://bugs.chromium.org/p/chromium/issues/detail?id=20574&desc=2
 //NOTA 2: Parece que no lo van a arreglar (¬_¬').
-type Type = 'success' | 'error' | 'warning' | 'information';
-type From = 'top' | 'bottom';
-type Side = 'left' | 'right';
+export type Type = 'success' | 'error' | 'warning' | 'information';
+export type From = 'top' | 'bottom';
+export type Side = 'left' | 'right';
 interface IToastNotificationProps extends HTMLAttributes<HTMLDivElement> {
 	//Obligatorios.
     notificationType: Type;

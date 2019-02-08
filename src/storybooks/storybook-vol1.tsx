@@ -12,6 +12,7 @@ import { CheckBox } from '../checkboxes/checkboxes';
 import { BasicSelect, AdvancedSelect } from '../dropdownlists/dropdownlists';
 import { CircularGraph } from '../graphs/graphs';
 import { Icon } from '../icons/icons';
+import { Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter } from '../modals/modals';
 import { RadioButton, RadioButtonsGroup } from '../radiobuttons/radiobuttons';
 import { Tabs } from '../tabs/tabs';
 import { ToastNotification } from '../toastnotifications/toastnotifications';
@@ -134,6 +135,8 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
     private ErrorToastNotificationRef: RefObject<HTMLDivElement & ToastNotification>;
     private WarningToastNotificationRef: RefObject<HTMLDivElement & ToastNotification>;
     private InformationToastNotificationRef: RefObject<HTMLDivElement & ToastNotification>;
+
+    private ModalRef: RefObject<HTMLDivElement & Modal>;
     //*** CONSTRUCTOR ***
     constructor(props: HTMLProps<HTMLDivElement>) {
         super(props);
@@ -142,6 +145,8 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
         this.ErrorToastNotificationRef = createRef();
         this.WarningToastNotificationRef = createRef();
         this.InformationToastNotificationRef = createRef();
+
+        this.ModalRef = createRef();
 
         this.state = {
             //Animaciones.
@@ -435,6 +440,25 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
                         <CircularGraph percent={75} theme='green' style={{ width: '150px' }}/>
                         <CircularGraph percent={45} theme='orange'/>
                         <CircularGraph percent={10} theme='red'/>
+                    </Row>
+                    <Title style={{ marginTop: '20px' }}>Modal:</Title>
+                    <Row>
+                        <IconButton theme='red' size='small' icon='comment'
+                            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                                let node: HTMLElement & Modal | null = this.ModalRef.current;
+                                if(node) node.show();
+                            }}>Show modal</IconButton>
+                        <Modal ref={this.ModalRef}>
+                            <ModalHeader>
+                                <ModalTitle>Título del modal</ModalTitle>
+                            </ModalHeader>
+                            <ModalBody>
+                                <Loading size={{ height: 60, width: 60 }} />
+                            </ModalBody>
+                            <ModalFooter>
+                                <label>&#9400; Panda Corp. all rights reserved.</label>
+                            </ModalFooter>
+                        </Modal>
                     </Row>
                     <Title style={{ marginTop: '20px' }}>Radio Buttons:</Title>
                     <Row>

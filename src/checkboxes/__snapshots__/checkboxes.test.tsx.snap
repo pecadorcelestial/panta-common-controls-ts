@@ -52,6 +52,7 @@ exports[`[SNAPSHOT][Componentes][Common][CheckBox] - Checkbox normal. Debe pinta
 
 <div
   className="c0 c1"
+  disabled={false}
   onClick={[Function]}
 >
   <div
@@ -134,6 +135,7 @@ exports[`[SNAPSHOT][Componentes][Common][CheckBox] - Checkbox normal. Debe pinta
 
 <div
   className="c0 c1"
+  disabled={false}
   onClick={[Function]}
 >
   <div
