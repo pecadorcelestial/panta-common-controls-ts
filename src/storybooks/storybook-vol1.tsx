@@ -1,5 +1,5 @@
 //Módulos generales.
-import React, { Component } from 'react';
+import React, { Component, HTMLProps } from 'react';
 import styled from 'styled-components';
 
 //Componentes locales.
@@ -116,6 +116,8 @@ const ColoredDiv = styled.div`
     width: 100px;
 `;
 
+//type Size = 'small' | 'medium' | 'big';
+
 interface ISBVol1ClassState {
     fadeFrom: 'left' | 'right' | 'top' | 'bottom';
     flipFrom: 'vertical' | 'horizontal';
@@ -127,7 +129,7 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
     private AnimateFlipRef: Animate;
     private AnimateZoomRef: Animate;
     //*** CONSTRUCTOR ***
-    constructor(props: React.HTMLProps<HTMLDivElement>) {
+    constructor(props: HTMLProps<HTMLDivElement>) {
         super(props);
         this.state = {
             //Animaciones.

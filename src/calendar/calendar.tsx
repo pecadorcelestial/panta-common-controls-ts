@@ -1,6 +1,6 @@
 //Componentes generales.
 import React, { Component, HTMLProps } from 'react';
-import styled, { AnyStyledComponent } from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 
 import Month from './month';
 import Months from './months';
@@ -12,7 +12,7 @@ import Years from './years';
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     margin: 0px;
     min-height: 195px;

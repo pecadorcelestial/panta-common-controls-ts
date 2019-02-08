@@ -1,6 +1,6 @@
 //Modulos generales.
 import React, { Component, HTMLProps } from 'react';
-import styled, { css, keyframes, AnyStyledComponent } from 'styled-components';
+import styled, { css, keyframes, Keyframes, StyledComponent } from 'styled-components';
 
 type Theme = 'red' | 'blue' | 'green' | 'yellow' | 'gray' | 'orange' | 'black' | 'IENTC';
 const backgroundColor = (theme: Theme): string => {
@@ -16,25 +16,25 @@ const backgroundColor = (theme: Theme): string => {
 	}
 };
 
-const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     justify-content: space-around;
     width: 200px;
 `;
 
-const SVG: AnyStyledComponent<HTMLProps<SVGSVGElement>, any> = styled.svg`
+const SVG: StyledComponent<'svg', any, HTMLProps<SVGSVGElement>, never> = styled.svg`
     display: block;
     margin: 10px auto;
     max-height: 200px;
     max-width: 200px;
 `;
 
-const OutterPath: AnyStyledComponent<HTMLProps<SVGPathElement>, any> = styled.path`
+const OutterPath: StyledComponent<'path', any, HTMLProps<SVGPathElement>, never> = styled.path`
     fill: none;
     stroke: #EEE;
     stroke-width: 2.8;
 `;
 
-const progress = (percent: number): any => keyframes`
+const progress = (percent: number): Keyframes => keyframes`
     0% {
         stroke-dasharray: 0 100;
     }
@@ -51,7 +51,7 @@ interface IInnerPathProps {
     theme: Theme;
     percent: number;
 };
-const InnerPath: AnyStyledComponent<IInnerPathProps & HTMLProps<SVGPathElement>, any> = styled.path`
+const InnerPath: StyledComponent<'path', any, IInnerPathProps & HTMLProps<SVGPathElement>, never> = styled.path`
     fill: none;
     stroke-linecap: round;
     stroke: ${(props: IInnerPathProps) => backgroundColor(props.theme)};
@@ -60,7 +60,7 @@ const InnerPath: AnyStyledComponent<IInnerPathProps & HTMLProps<SVGPathElement>,
     animation: ${animationF};
 `;
 
-const Text: AnyStyledComponent<IInnerPathProps & HTMLProps<HTMLTextAreaElement>, any> = styled.text`
+const Text: StyledComponent<'text', any, IInnerPathProps & HTMLProps<HTMLTextAreaElement>, never> = styled.text`
     fill: #666;
     font-family: "Open Sans", sans-serif;
     font-size: 0.5em;
@@ -70,10 +70,13 @@ const Text: AnyStyledComponent<IInnerPathProps & HTMLProps<HTMLTextAreaElement>,
     text-anchor: middle;
 `;
 
-interface ICircularGraphProps extends IInnerPathProps {};
-export class CircularGraph extends Component<ICircularGraphProps & HTMLProps<HTMLDivElement>, {}> {
+interface ICircularGraphProps extends HTMLProps<HTMLDivElement> {
+    theme: Theme;
+    percent: number;
+};
+export class CircularGraph extends Component<ICircularGraphProps, {}> {
     render() {
-        let { theme, percent, ...rest } = this.props;
+        let { theme, percent, ref, as, ...rest } = this.props;
         return(
             <Layout {...rest}>
                 <SVG viewBox="0 0 36 36">
@@ -85,7 +88,7 @@ export class CircularGraph extends Component<ICircularGraphProps & HTMLProps<HTM
                         theme={theme}
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                     />
-                    <Text x="18" y="20.35">{`${percent}%`}</Text>
+                    <Text x="18" y="20.35" percent={percent}>{`${percent}%`}</Text>
                 </SVG>
             </Layout>
         );

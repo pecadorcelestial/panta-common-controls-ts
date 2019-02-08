@@ -1,6 +1,6 @@
 //Componentes generales.
-import React, { Component } from 'react';
-import styled, { AnyStyledComponent } from 'styled-components';
+import React, { Component, SVGProps } from 'react';
+import styled, { StyledComponent } from 'styled-components';
 
 interface ISVGProps {
     fill?: string;
@@ -8,7 +8,7 @@ interface ISVGProps {
     margin?: string;
     width?: string;
 };
-const SVG: AnyStyledComponent<ISVGProps & React.SVGProps<SVGSVGElement>, any> = styled.svg`
+const SVG: StyledComponent<'svg', any, ISVGProps & SVGProps<SVGSVGElement>, never> = styled.svg`
     display: inline-block;
     fill: ${(props: ISVGProps) => props.fill ? props.fill : `#FFF`};
     height: ${(props: ISVGProps) => props.height ? props.height : `50px`};
@@ -23,7 +23,7 @@ const SVG: AnyStyledComponent<ISVGProps & React.SVGProps<SVGSVGElement>, any> = 
 export interface IIconProps extends ISVGProps {
     icon: string;
 };
-export const Icon: AnyStyledComponent<IIconProps & React.SVGProps<SVGSVGElement>, any, any> = styled((props: any) => {
+export const Icon: StyledComponent<'svg', any, IIconProps & SVGProps<SVGSVGElement>, never> = styled((props: any) => {
     //console.log('[ICONS][constant] Icono: ', props.icon);
     let iconFile: any;
     try {

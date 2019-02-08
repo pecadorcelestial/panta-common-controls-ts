@@ -1,6 +1,6 @@
 //Componentes generales.
-import React from 'react';
-import styled, { AnyStyledComponent } from 'styled-components';
+import React, { HTMLProps } from 'react';
+import styled, { StyledComponent } from 'styled-components';
 
 import { Icon } from '../icons/icons';
 
@@ -842,11 +842,12 @@ const iconSize = (size: Size): string => {
 	return result;
 };
 
-interface IButtonProps {
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+interface IButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'size'> {
 	theme: Theme;
 	size: Size;
 };
-export const Button: AnyStyledComponent<IButtonProps & React.HTMLProps<HTMLButtonElement>, any, any> = styled((props: IButtonProps & React.HTMLProps<HTMLButtonElement>) => {
+export const Button: StyledComponent<'button', any, IButtonProps, never> = styled((props: IButtonProps) => {
 	let { className, children, ...rest } = props;
 	return <button className={className} {...rest}>{children}</button>;
 })`
@@ -914,8 +915,11 @@ export const Button: AnyStyledComponent<IButtonProps & React.HTMLProps<HTMLButto
 
 
 //NOTA: Este componente está preparado para modificar los estilos que sean necesarios.
-export const IconButton: AnyStyledComponent<IButtonProps & React.HTMLProps<HTMLButtonElement>, any, any> = styled((props: any) => {
-	let { className, theme, size, children, ...rest} = props;
+interface IIconButtonProps extends IButtonProps {
+	icon: string;
+};
+export const IconButton: StyledComponent<'button', any, IIconButtonProps, never> = styled((props: IIconButtonProps) => {
+	let { className, theme, size, children, ref, as, ...rest} = props;
 	return <Button className={className} theme={theme} size={size} {...rest}><Icon icon={props.icon} margin='0px 5px 0px 0px'/>{children}</Button>;
 })``;
 
@@ -941,7 +945,7 @@ const padding = (size: Size): string => {
 	return result;
 };
 
-export const RoundButton: AnyStyledComponent<IButtonProps & React.HTMLProps<HTMLButtonElement>, any, any> = styled((props: any) => {
+export const RoundButton: StyledComponent<'button', any, IButtonProps & HTMLProps<HTMLButtonElement>, never> = styled((props: any) => {
 	let { className, theme, size, children, ...rest} = props;
 	return <Button className={className} theme={theme} size={size} {...props}><Icon icon={props.icon}/></Button>;
 })`

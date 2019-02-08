@@ -1,6 +1,6 @@
 //Componentes generales.
-import React, { Component } from 'react';
-import styled, { AnyStyledComponent } from 'styled-components';
+import React, { Component, HTMLProps } from 'react';
+import styled, { StyledComponent } from 'styled-components';
 
 const Layout = styled.div`
     box-sizing: border-box;
@@ -14,8 +14,8 @@ const Layout = styled.div`
 interface ICheckMarkProps {
     checked: boolean;
 };
-const CheckMark: AnyStyledComponent<ICheckMarkProps & React.HTMLProps<HTMLDivElement>, any, any> = styled.div`
-    background-color: ${(props: ICheckMarkProps & React.HTMLProps<HTMLDivElement>) => props.checked ? `#1476FB`: `#BFBFBF`};
+const CheckMark: StyledComponent<'div', any, ICheckMarkProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+    background-color: ${(props: ICheckMarkProps & HTMLProps<HTMLDivElement>) => props.checked ? `#1476FB`: `#BFBFBF`};
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
@@ -27,10 +27,10 @@ const CheckMark: AnyStyledComponent<ICheckMarkProps & React.HTMLProps<HTMLDivEle
     width: 20px;
     
     ${Layout}:hover & {
-        background-color: ${(props: ICheckMarkProps & React.HTMLProps<HTMLDivElement>) => props.checked ? `#11AAFF`: `#A7A7A7`};
+        background-color: ${(props: ICheckMarkProps & HTMLProps<HTMLDivElement>) => props.checked ? `#11AAFF`: `#A7A7A7`};
     }
 
-    ${(props: ICheckMarkProps & React.HTMLProps<HTMLDivElement>) => props.checked ? `
+    ${(props: ICheckMarkProps & HTMLProps<HTMLDivElement>) => props.checked ? `
         &:after {
             border: solid white;
             border-width: 0px 3px 3px 0px;
@@ -44,7 +44,7 @@ const CheckMark: AnyStyledComponent<ICheckMarkProps & React.HTMLProps<HTMLDivEle
         }` : ``}
 `;
 
-const Title: AnyStyledComponent<React.HTMLProps<HTMLLabelElement>, any> = styled.label`
+const Title: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
     box-sizing: border-box;
     color: #242424;
     cursor: pointer;

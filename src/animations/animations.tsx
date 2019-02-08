@@ -1,7 +1,6 @@
 //Componentes generales.
-import React, { createRef } from 'react';
-import styled, { css, keyframes, AnyStyledComponent } from 'styled-components';
-import { ProgressPlugin } from 'webpack';
+import React, { createRef, HTMLProps } from 'react';
+import styled, { css, keyframes, Keyframes, StyledComponent } from 'styled-components';
 
 //L      OOO   AAA  DDDD  IIIII N   N  GGGG
 //L     O   O A   A D   D   I   NN  N G
@@ -13,11 +12,7 @@ interface ILoadingProps {
 	height: number;
 	width: number;
 };
-//interface AnyStyledComponent<P, T, O = P>
-//P = Properties.
-//T = Theme properties.
-//O = Outer properties?
-const LoadingLayout: AnyStyledComponent<ILoadingProps & React.HTMLProps<HTMLDivElement>, any> = styled.div`
+const LoadingLayout: StyledComponent<'div', any, ILoadingProps, never> = styled.div`
 	height: ${(props: ILoadingProps) => props.height}px;
 	margin: 0 auto;
 	position: relative;
@@ -25,7 +20,7 @@ const LoadingLayout: AnyStyledComponent<ILoadingProps & React.HTMLProps<HTMLDivE
 `;
 
 //NOTA: Los 'keyframes' se deben declarar antes de usarlos dentro de algún estilo.
-const circleFadeDelay: string = keyframes`
+const circleFadeDelay: Keyframes = keyframes`
 	0% {
 		opacity: 0;
 	}
@@ -40,7 +35,7 @@ const circleFadeDelay: string = keyframes`
 	}
 `;
 
-const LoadingCircle: AnyStyledComponent<React.HTMLProps<HTMLDivElement>, any> = styled.div`
+const LoadingCircle: StyledComponent<'div', any, {}, never> = styled.div`
 	height: 100%;
 	left: 0;
 	position: absolute;
@@ -218,7 +213,7 @@ export class Loading extends React.Component<ILoadingComponentProps, any> {
 //F     A   A D   D E
 //F     A   A DDDD  EEEEE
 
-const FadeIn = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): any => keyframes`
+const FadeIn = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): Keyframes => keyframes`
     0% {
         ${from}: -100%;
         opacity: 0;
@@ -229,7 +224,7 @@ const FadeIn = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizo
     }
 `;
 
-const FadeInWithBounce = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): any => keyframes`
+const FadeInWithBounce = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): Keyframes => keyframes`
     0% {
         ${from}: -100%;
         opacity: 0;
@@ -248,7 +243,7 @@ const FadeInWithBounce = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical'
     }
 `;
 
-const FadeOut = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): any => keyframes`
+const FadeOut = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): Keyframes => keyframes`
     0% {
         ${from}: 0px;
         opacity: 1;
@@ -265,7 +260,7 @@ const FadeOut = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horiz
 //F     L       I   P
 //F     LLLLL IIIII P
 
-const FlipIn = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): any => keyframes`
+const FlipIn = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): Keyframes => keyframes`
     0% {
         opacity: 0;
         transform: rotate${from === 'vertical' ? `X` : `Y`}(90deg);
@@ -276,7 +271,7 @@ const FlipIn = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizo
     }
 `;
 
-const FlipInWithBounce = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): any => keyframes`
+const FlipInWithBounce = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): Keyframes => keyframes`
     0% {
         opacity: 0;
         transform: rotate${from === 'vertical' ? `X` : `Y`}(90deg);
@@ -295,7 +290,7 @@ const FlipInWithBounce = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical'
     }
 `;
 
-const FlipOut = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): any => keyframes`
+const FlipOut = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal'): Keyframes => keyframes`
     0% {
         opacity: 1;
         transform: rotate${from === 'vertical' ? `X` : `Y`}(0deg);
@@ -312,7 +307,7 @@ const FlipOut = (from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horiz
 // Z    O   O O   O M   M
 //ZZZZZ  OOO   OOO  M   M
 
-const ZoomIn = (): any => keyframes`
+const ZoomIn = (): Keyframes => keyframes`
     0% {
         opacity: 0;
         transform: scale(0);
@@ -323,7 +318,7 @@ const ZoomIn = (): any => keyframes`
     }
 `;
 
-const ZoomInWithBounce = (): any => keyframes`
+const ZoomInWithBounce = (): Keyframes => keyframes`
     0% {
         opacity: 0;
         transform: scale(0);
@@ -342,7 +337,7 @@ const ZoomInWithBounce = (): any => keyframes`
     }
 `;
 
-const ZoomOut = (): any => keyframes`
+const ZoomOut = (): Keyframes => keyframes`
     0% {
         opacity: 1;
         transform: scale(1);
@@ -374,8 +369,8 @@ interface IAnimation {
 	from: TFrom;
 	enterWithBounce: boolean;
 };
-const getEntranceAnimation = (type: TType, from: TFrom, enterWithBounce: boolean): string => {
-	let result: string = '';
+const getEntranceAnimation = (type: TType, from: TFrom, enterWithBounce: boolean): Keyframes => {
+	let result: Keyframes = keyframes``;
 	if(enterWithBounce) {
 		switch(type) {
 			case 'fade': 
@@ -404,8 +399,8 @@ const getEntranceAnimation = (type: TType, from: TFrom, enterWithBounce: boolean
 	return result;
 };
 
-const getExitAnimation = (type: TType, from: TFrom): string => {
-	let result: string = '';
+const getExitAnimation = (type: TType, from: TFrom): Keyframes => {
+	let result: Keyframes = keyframes``;
     switch(type) {
 		case 'fade': 
 			result =  FadeOut(from);
@@ -427,7 +422,7 @@ interface IAnimationProps {
 	exit: boolean;
 	enterWithBounce: boolean;
 };
-const Animation: AnyStyledComponent<IAnimationProps & React.HTMLProps<HTMLDivElement>, any> = styled.div`
+const Animation: StyledComponent<'div', any, IAnimationProps & HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     display: block;
     height: auto;
@@ -571,6 +566,12 @@ export class Animate extends React.Component<IAnimateClassProps, IAnimateClassSt
 
 		let { type, from, enterWithBounce, executeWhen, ...rest } = this.props;
 
+		//RRRR  EEEEE  SSSS U   U L     TTTTT  AAA  DDDD   OOO
+		//R   R E     S     U   U L       T   A   A D   D O   O
+		//RRRR  EEE    SSS  U   U L       T   AAAAA D   D O   O
+		//R   R E         S U   U L       T   A   A D   D O   O
+		//R   R EEEEE SSSS   UUU  LLLLL   T   A   A DDDD   OOO
+		
         return(
             <Animation {...animationProps} {...rest} ref={this.AnimationInnerRef}>
                 {this.props.children}
@@ -590,7 +591,7 @@ export class Animate extends React.Component<IAnimateClassProps, IAnimateClassSt
 interface ICardProps {
 	flip: boolean;
 };
-const Card: AnyStyledComponent<ICardProps & React.HTMLProps<HTMLDivElement>, any> = styled.div`
+const Card: StyledComponent<'div', any, ICardProps & HTMLProps<HTMLDivElement>, never> = styled.div`
 	box-sizing: border-box;
     display: block;
 	height: auto;
@@ -611,7 +612,7 @@ const Card: AnyStyledComponent<ICardProps & React.HTMLProps<HTMLDivElement>, any
     ${(props: ICardProps) => props.flip ? `transform: rotateY(180deg);` : ``}
 `;
 
-const Content = styled.div`
+const Content: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     backface-visibility: hidden;
 	box-sizing: border-box;
 	display: inline-block;
@@ -621,11 +622,11 @@ const Content = styled.div`
     width: 100%;
 `;
 
-export const FrontContent = styled(Content)`
+export const FrontContent: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled(Content)`
 	
 `;
 
-export const BackContent = styled(Content)`
+export const BackContent: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled(Content)`
 	left: 0px;
 	position: absolute;
 	top: 0px;
@@ -637,7 +638,7 @@ interface ICardClassProps {};
 interface ICardClassState extends ICardProps {};
 export class FlipCard extends React.Component<ICardClassProps, ICardClassState> {
 	//*** CONSTRUCTOR ***
-    constructor(props: React.HTMLProps<HTMLDivElement>) {
+    constructor(props: ICardClassProps & HTMLProps<HTMLDivElement>) {
         super(props);
         this.state = {
             flip: false

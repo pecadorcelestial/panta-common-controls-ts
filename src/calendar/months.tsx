@@ -1,6 +1,6 @@
 //Componentes generales.
 import React, { Component, HTMLProps } from 'react';
-import styled, { ThemeProvider, AnyStyledComponent } from 'styled-components';
+import styled, { ThemeProvider, StyledComponent } from 'styled-components';
 import theme from 'styled-theming';
 
 //Funciones.
@@ -30,7 +30,7 @@ const headerButtonsHover: theme.ThemeSet = theme('theme', {
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     min-height: 195px;
     margin: 0px;
@@ -39,7 +39,7 @@ const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
     width: 185px;
 `;
 
-const Header: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Header: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: ${headerBackgroundColor};
     box-sizing: border-box;
     height: 35px;
@@ -50,7 +50,7 @@ const Header: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
     width: 100%;
 `;
 
-const YearButton: AnyStyledComponent<HTMLProps<HTMLButtonElement>, any> = styled.button`
+const YearButton: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, never> = styled.button`
     background-color: transparent;
     border: none;
     border-radius: 5px;
@@ -75,7 +75,7 @@ const YearButton: AnyStyledComponent<HTMLProps<HTMLButtonElement>, any> = styled
 	}
 `;
 
-const Body: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Body: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: #FFF;
     box-sizing: border-box;
     height: auto;
@@ -192,7 +192,7 @@ const getYearButtonTheme = (state: 'selected' | 'disabled' | 'normal'): string =
 interface IMonthProps {
     state: 'selected' | 'disabled' | 'normal';
 };
-const Month: AnyStyledComponent<IMonthProps & HTMLProps<HTMLButtonElement>, any> = styled.button`
+const Month: StyledComponent<'button', any, IMonthProps & HTMLProps<HTMLButtonElement>, never> = styled.button`
     border: none;
     border-radius: 5px;
     box-sizing: border-box;

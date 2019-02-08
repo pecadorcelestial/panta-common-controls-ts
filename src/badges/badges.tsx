@@ -1,6 +1,6 @@
 //Componentes generales.
-import React from 'react';
-import styled, { AnyStyledComponent } from 'styled-components';
+import React, { HTMLProps } from 'react';
+import styled, { StyledComponent } from 'styled-components';
 
 import { Icon, IIconProps } from '../icons/icons';
 
@@ -263,7 +263,8 @@ interface ICloseButtonProps extends IIconProps {
 	theme: Theme;
 	size: Size;
 };
-const CloseButton: AnyStyledComponent<ICloseButtonProps & React.SVGProps<SVGSVGElement>, any> = styled(Icon)`
+//: StyledComponent<any, any, ICloseButtonProps & React.SVGProps<SVGSVGElement>, never>
+const CloseButton: StyledComponent<"svg", any, ICloseButtonProps & React.SVGProps<SVGSVGElement>, never> = styled(Icon)`
 	box-sizing: border-box;
 	cursor: pointer;
 	fill: ${(props: ICloseButtonProps) => color(props.theme)};
@@ -277,26 +278,42 @@ const CloseButton: AnyStyledComponent<ICloseButtonProps & React.SVGProps<SVGSVGE
 
 `;
 
-interface IBadgeProps extends ICloseButtonProps {};
-export const Badge: AnyStyledComponent<IBadgeProps & React.HTMLProps<HTMLLabelElement>, any, any> = styled((props: any) => {
-	const { className, children, closeOnClick, showCloseButton, ...rest } = props;
-	return <label className={className} {...rest}>{children}{showCloseButton ? <CloseButton icon='solidTimesCircle' theme={props.theme} size={props.size} onClick={(event) => { if(closeOnClick) closeOnClick(event); }}/> : null}</label>;
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+interface IBadgeProps extends Omit<HTMLProps<HTMLLabelElement>, 'size'> {
+	size: Size;
+	theme: Theme;
+	closeOnClick?: Function;
+	showCloseButton?: boolean;
+};
+export const Badge: StyledComponent<'label', any, IBadgeProps, never> = styled((props: IBadgeProps) => {
+	const { className, children, size, theme, closeOnClick, showCloseButton, ...rest } = props;
+	return <label 
+			className={className} 
+			{...rest}>
+			{children}
+			{showCloseButton ? 
+				<CloseButton 
+					icon='solidTimesCircle' 
+					theme={theme} 
+					size={size} 
+					onClick={(event) => { if(closeOnClick) closeOnClick(event); }}/> : null}
+			</label>;
 })`
-	background-color: ${props => backgroundColor(props.theme)};
-	border: ${props => border(props.theme)};
-	border-radius: ${props => borderRadius(props.size)};
+	background-color: ${(props: IBadgeProps) => backgroundColor(props.theme)};
+	border: ${(props: IBadgeProps) => border(props.theme)};
+	border-radius: ${(props: IBadgeProps) => borderRadius(props.size)};
 	box-sizing: border-box;
-	color: ${props => color(props.theme)};
+	color: ${(props: IBadgeProps) => color(props.theme)};
 	display: inline-block;
-	font-size: ${props => fontSize(props.size)};
+	font-size: ${(props: IBadgeProps) => fontSize(props.size)};
 	font-family: "Open Sans", sans-serif;	
 	font-stretch: normal;
 	font-style: normal;	
 	font-weight: bold;
-	height: ${props => height(props.size)};
+	height: ${(props: IBadgeProps) => height(props.size)};
 	letter-spacing: normal;
-	line-height: ${props => lineHeight(props.size)};
-	padding: ${props => padding(props.size, props.showCloseButton)};
+	line-height: ${(props: IBadgeProps) => lineHeight(props.size)};
+	padding: ${(props: IBadgeProps) => padding(props.size, props.showCloseButton || false)};
 	text-align: center;
 	width: auto;
 	
@@ -307,9 +324,9 @@ export const Badge: AnyStyledComponent<IBadgeProps & React.HTMLProps<HTMLLabelEl
 	}
 	
 	${Icon} {
-		fill: ${props => color(props.theme)};
-		height: ${props => iconSize(props.size)};
-		width: ${props => iconSize(props.size)};
+		fill: ${(props: IBadgeProps) => color(props.theme)};
+		height: ${(props: IBadgeProps) => iconSize(props.size)};
+		width: ${(props: IBadgeProps) => iconSize(props.size)};
 	}
 `;
 
@@ -322,14 +339,22 @@ export const Badge: AnyStyledComponent<IBadgeProps & React.HTMLProps<HTMLLabelEl
 //https://github.com/styled-components/styled-components/issues/305
 
 //NOTA: Este componente está preparado para modificar los estilos que sean necesarios.
-export const IconBadge: AnyStyledComponent<IBadgeProps & React.HTMLProps<HTMLLabelElement>, any, any> = styled((props: any) => {
-	let { className, theme, size, closeOnClick, children, ...rest} = props;
-	return <Badge className={className} theme={theme} size={size} closeOnClick={closeOnClick} {...rest}><Icon icon={props.icon} margin='3px 6px 0px 0px'/>{children}</Badge>;
+interface IIconBadge extends Omit<HTMLProps<HTMLLabelElement>, 'size'> {
+	icon: string;
+	size: Size;
+	theme: Theme;
+	closeOnClick?: Function;
+	showCloseButton?: boolean;
+};
+//interface IIconBadge extends IIconProps{};
+export const IconBadge: StyledComponent<'label', any, IIconBadge, never> = styled((props: IIconBadge) => {
+	let { className, theme, size, icon, closeOnClick, children, ref, as, ...rest} = props;
+	return <Badge className={className} theme={theme} size={size} closeOnClick={closeOnClick} {...rest}>{children}</Badge>;
 })`
     padding: 0px 5px 0px 5px;
 `;
 
-const NotificationContainer = styled.div`
+const NotificationContainer: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;    
     display: inline-block;
     height: auto;
@@ -339,7 +364,7 @@ const NotificationContainer = styled.div`
     width: auto;
 `;
 
-const NotificationBubble = styled.div`
+const NotificationBubble: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: #FF456A;
     box-sizing: border-box;
     border-radius: 50%;
@@ -369,7 +394,7 @@ const NotificationBubble = styled.div`
 interface INotificationBadgeProps {
 	counter: string;
 };
-export const NotificationBadge: AnyStyledComponent<INotificationBadgeProps & React.HTMLProps<HTMLDivElement>, any, any> = styled((props: any) => {
+export const NotificationBadge: StyledComponent<'div', any, INotificationBadgeProps & HTMLProps<HTMLDivElement>, never> = styled((props: any) => {
 	let { className, children, ...rest} = props;
     return <NotificationContainer className={className} {...rest}>
         <NotificationBubble>{props.counter}</NotificationBubble>

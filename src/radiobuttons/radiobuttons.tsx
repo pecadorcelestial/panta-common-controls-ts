@@ -1,9 +1,8 @@
 //Componentes generales.
 import React, { Component, HTMLProps } from 'react';
-import PropTypes from 'prop-types';
-import styled, { AnyStyledComponent } from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 
-const Input: AnyStyledComponent<HTMLProps<HTMLLabelElement>, any> = styled.label`
+const Input: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
     box-sizing: border-box;
     color: #242424;
     cursor: pointer;
@@ -26,7 +25,7 @@ const Input: AnyStyledComponent<HTMLProps<HTMLLabelElement>, any> = styled.label
 interface ICheckMarkProps {
     checked: boolean;
 };
-const CheckMark: AnyStyledComponent<ICheckMarkProps & HTMLProps<HTMLDivElement>, any> = styled.div`
+const CheckMark: StyledComponent<'div', any, ICheckMarkProps & HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: ${(props: ICheckMarkProps) => props.checked ? `#1476FB`: `#BFBFBF`};
     border: none;
     border-radius: 50%;
@@ -62,14 +61,15 @@ const CheckMark: AnyStyledComponent<ICheckMarkProps & HTMLProps<HTMLDivElement>,
 
 interface IRadioButtonProps extends ICheckMarkProps {
     value: string | number;
-    onChange?: Function;
+    onChange?: (event: string | number) => void;
 };
 export class RadioButton extends Component<IRadioButtonProps, {}> {
     render() {
+        let { checked, value, onChange, children, ...rest } = this.props;
         return(
-            <Input {...this.props} onClick={() => { if(this.props.onChange) { this.props.onChange(this.props.value); } }}>
-                <CheckMark checked={this.props.checked}/>
-                {this.props.children}
+            <Input {...rest} onClick={() => { if(onChange) { onChange(value); } }}>
+                <CheckMark checked={checked}/>
+                {children}
             </Input>
         );
     }
@@ -81,7 +81,7 @@ export class RadioButton extends Component<IRadioButtonProps, {}> {
 //G   G R   R U   U P     O   O
 // GGGG R   R  UUU  P      OOO
 
-const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     height: auto;
     margin: 0px;
@@ -89,7 +89,7 @@ const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
     width: auto;
 `;
 
-const Buttons: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Buttons: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

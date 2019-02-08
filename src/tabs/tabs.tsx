@@ -1,6 +1,6 @@
 //Componentes generales.
 import React, { HTMLProps } from 'react';
-import styled, { AnyStyledComponent } from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 
 //Funciones.
 import { capitalizeString } from '../scripts/string-functions';
@@ -8,7 +8,7 @@ import { capitalizeString } from '../scripts/string-functions';
 //Componentes locales.
 import { IconButton } from '../buttons/buttons';
 
-const TabIconButton: AnyStyledComponent<HTMLProps<HTMLButtonElement>, any> = styled(IconButton)`
+const TabIconButton: StyledComponent<any, any, HTMLProps<HTMLButtonElement>, never> = styled(IconButton)`
     border-radius: unset;
     float: left;
 `;
@@ -39,7 +39,7 @@ const border = (theme: Theme): string => {
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
+const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     height: auto;
     margin: 0px;
@@ -47,7 +47,7 @@ const Layout: AnyStyledComponent<HTMLProps<HTMLDivElement>, any> = styled.div`
     width: 100%;
 `;
 
-const TabsHeader: AnyStyledComponent<ITabsProps & HTMLProps<HTMLDivElement>, any> = styled.div`
+const TabsHeader: StyledComponent<'div', any, ITabsProps & HTMLProps<HTMLDivElement>, never> = styled.div`
     border: ${(props: ITabsProps) => border(props.theme)};
     border-radius: 5px 5px 0px 0px;
     box-sizing: border-box;
@@ -59,7 +59,7 @@ const TabsHeader: AnyStyledComponent<ITabsProps & HTMLProps<HTMLDivElement>, any
     width: 100%;
 `;
 
-const TabsContent: AnyStyledComponent<ITabsProps & HTMLProps<HTMLDivElement>, any> = styled.div`
+const TabsContent: StyledComponent<'div', any, ITabsProps & HTMLProps<HTMLDivElement>, never> = styled.div`
     border: ${(props: ITabsProps) => border(props.theme)};
     border-radius: 0px 0px 5px 5px;
     border-top: unset;
@@ -91,9 +91,9 @@ interface ITabsProps {
 interface ITabsState {
     activeTab: string;
 };
-export class Tabs extends React.Component<ITabsProps & HTMLProps<HTMLDivElement>, ITabsState> {
+export class Tabs extends React.Component<ITabsProps, ITabsState> {
     //*** CONSTRUCTOR ***
-    constructor(props: ITabsProps) {
+    constructor(props: ITabsProps & HTMLProps<HTMLDivElement>) {
         super(props);
         //Pestaña activa.
         let activeTab = '';
@@ -160,7 +160,7 @@ export class Tabs extends React.Component<ITabsProps & HTMLProps<HTMLDivElement>
 
         return(
             <Layout {...rest}>
-                <TabsHeader theme={theme}>
+                <TabsHeader theme={theme} tabs={tabs}>
                     {
                         tabs.map((tab, index) => {
                             if(this.state.activeTab === tab.id) {
@@ -172,7 +172,7 @@ export class Tabs extends React.Component<ITabsProps & HTMLProps<HTMLDivElement>
                         })
                     }
                 </TabsHeader>
-                <TabsContent theme={theme}>
+                <TabsContent theme={theme} tabs={tabs}>
                     {selectedTabContent}
                 </TabsContent>
             </Layout>
