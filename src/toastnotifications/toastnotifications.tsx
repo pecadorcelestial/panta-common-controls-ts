@@ -113,7 +113,7 @@ const hideMobile = (from: From): Keyframes => keyframes`
 `;
 
 const animationShow = (props: ILayoutProps) => css`
-	${show(props.from)} 0.6s ease forwards;
+	${props.showWithBounce ? showWithBounce(props.from) : show(props.from)} 0.6s ease forwards;
 `;
 
 const animationHide = (props: ILayoutProps) => css`
@@ -121,7 +121,7 @@ const animationHide = (props: ILayoutProps) => css`
 `;
 
 const mobileAnimationShow = (props: ILayoutProps) => css`
-	${showMobile(props.from)} 0.6s ease forwards;
+	${props.showWithBounce ? showWithBounceMobile(props.from) : showMobile(props.from)} 0.6s ease forwards;
 `;
 
 const mobileAnimationHide = (props: ILayoutProps) => css`
@@ -158,14 +158,14 @@ const Layout: StyledComponent<'div', any, ILayoutProps, never> = styled.div`
     ${(props: ILayoutProps) => props.side}: 30px;
     ${(props: ILayoutProps) => props.from}: -100%;
 	
-	animation: ${(props: ILayoutProps) => props.show ? animationShow : animationHide};
+	animation: ${(props: ILayoutProps) => props.show ? animationShow : (props.hide ? animationHide : 'unset')};
     
 	@media screen and (max-width: 767px) {
 		border-radius: 0px;
 		left: 0px;
 		width: 100%;
 		
-		animation: ${(props: ILayoutProps) => props.show ? mobileAnimationShow : mobileAnimationHide};
+		animation: ${(props: ILayoutProps) => props.show ? mobileAnimationShow : (props.hide ? mobileAnimationHide : 'unset')};
 	}
 	
 	@media screen and (min-width: 768px) and (max-width: 991px) {
@@ -173,7 +173,7 @@ const Layout: StyledComponent<'div', any, ILayoutProps, never> = styled.div`
 		left: 0px;
 	    width: 100%;
 		
-		animation: ${(props: ILayoutProps) => props.show ? mobileAnimationShow : mobileAnimationHide};
+		animation: ${(props: ILayoutProps) => props.show ? mobileAnimationShow : (props.hide ? mobileAnimationHide : 'unset')};
 	}
 `;
 
