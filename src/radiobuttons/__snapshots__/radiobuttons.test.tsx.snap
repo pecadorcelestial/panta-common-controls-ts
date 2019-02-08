@@ -48,11 +48,8 @@ exports[`[SNAPSHOT][Componentes][Common][RadioButton] - RadioButton normal. Debe
 }
 
 <label
-  checked={false}
   className="c0 c1"
-  onChange={[Function]}
   onClick={[Function]}
-  value={1}
 >
   <div
     checked={false}
@@ -125,11 +122,8 @@ exports[`[SNAPSHOT][Componentes][Common][RadioButton] - RadioButton normal. Debe
 }
 
 <label
-  checked={true}
   className="c0 c1"
-  onChange={[Function]}
   onClick={[Function]}
-  value={1}
 >
   <div
     checked={true}
@@ -246,11 +240,8 @@ exports[`[SNAPSHOT][Componentes][Common][RadioButtonsGroup] - RadioButtonsGroup 
     className="c1"
   >
     <label
-      checked={false}
       className="c2 c3"
-      onChange={[Function]}
       onClick={[Function]}
-      value={1}
     >
       <div
         checked={false}
@@ -259,11 +250,8 @@ exports[`[SNAPSHOT][Componentes][Common][RadioButtonsGroup] - RadioButtonsGroup 
       Option #1
     </label>
     <label
-      checked={true}
       className="c2 c3"
-      onChange={[Function]}
       onClick={[Function]}
-      value={2}
     >
       <div
         checked={true}
@@ -272,11 +260,8 @@ exports[`[SNAPSHOT][Componentes][Common][RadioButtonsGroup] - RadioButtonsGroup 
       Option #2
     </label>
     <label
-      checked={false}
       className="c2 c3"
-      onChange={[Function]}
       onClick={[Function]}
-      value={3}
     >
       <div
         checked={false}

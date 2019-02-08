@@ -945,9 +945,9 @@ const padding = (size: Size): string => {
 	return result;
 };
 
-export const RoundButton: StyledComponent<'button', any, IButtonProps & HTMLProps<HTMLButtonElement>, never> = styled((props: any) => {
-	let { className, theme, size, children, ...rest} = props;
-	return <Button className={className} theme={theme} size={size} {...props}><Icon icon={props.icon}/></Button>;
+export const RoundButton: StyledComponent<'button', any, IIconButtonProps, never> = styled((props: IIconButtonProps) => {
+	let { className, theme, size, children, ref, as, ...rest} = props;
+	return <Button className={className} theme={theme} size={size} {...rest}><Icon icon={props.icon}/></Button>;
 })`
 	border-radius: 50%;
 	padding: ${props => padding(props.size)};

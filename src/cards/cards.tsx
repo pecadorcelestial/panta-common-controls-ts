@@ -2,7 +2,7 @@
 import React, { HTMLProps } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
-type Elevation = 4 | 8 | 10 | 14 | 18 | 32;
+type Elevation = 4 | 8 | 10 | 14 | 18 | 32 | undefined;
 
 const getCardBoxShadow = (elevation: Elevation): string => {
     let result: string = '';
@@ -31,8 +31,8 @@ const getCardBoxShadow = (elevation: Elevation): string => {
 };
 
 interface ICard {
-    elevation: Elevation;
-    width: string;
+    elevation?: Elevation;
+    //width: string;
 };
 export const Card: StyledComponent<'div', any, ICard & HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: #FFF;

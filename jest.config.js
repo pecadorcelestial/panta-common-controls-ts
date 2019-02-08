@@ -10,8 +10,29 @@
 //NOTA [2]: Al parecer se debe utilizar la nomenclatura de Node.JS, es decir "require" en lugar de "import" (°~°).
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
-dom = new JSDOM('<!doctype html><html><body></body></html>');
+dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>');
 const { window } = dom;
+
+window.addEventListener('resize', function(event) {
+    //console.log('[JSDOM][WINDOW][EVENT][resize] ', event);
+});
+
+window.addEventListener('scroll', function(event) {
+    //console.log('[JSDOM][WINDOW][EVENT][scroll] ', event);
+});
+
+window.alert = function(msg) {
+    console.log('[JSDOM][WINDOW][EVENT][alert] - ', msg);
+};
+
+window.resizeTo = function(height, width) {
+    //console.log(`[JSDOM][WINDOW][EVENT][alert] Height: ${height}, Width: ${width}.`);
+    window.innerHeight = height;
+    window.innerWidth = width;
+};
+
+global['Event'] = window.Event; //JSDOM.Event;
+
 global.window = window;
 global.document = window.document
 global.navigator = {

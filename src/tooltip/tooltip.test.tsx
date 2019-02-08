@@ -9,10 +9,17 @@ declare global {
         interface  Global {
             innerWidth: any;
             dispatchEvent: any;
+            //Event: CEvent;
         }
     }
 }
-
+/*
+class CEvent {
+    constructor(event: any) {
+        console.log(event);
+    }
+}
+*/
 /*
 declare global {
     namespace Jest {
@@ -84,7 +91,7 @@ describe('[SNAPSHOT][Componentes][Common][ToolTip] - ToolTip (Origen: arriba)(El
             anchorID: 'fake-id',
             theme: tooltipTheme,
             //Opcionales.
-            at: 'top' as At,
+            //at: 'top' as At,
             elevation: 4 as Elevation as Elevation
         };
         //Se crea el componente.
@@ -391,8 +398,11 @@ describe('[FLUJO][Componentes][Common][ToolTip] - Se muestra el tooltip y se deb
         //R   R E         S   I    Z    E
         //R   R EEEEE SSSS  IIIII ZZZZZ EEEEE
         
-        global.innerWidth = 500;
-        global.dispatchEvent(new Event('resize'));
+        //global.innerWidth = 500;
+        window.resizeTo(500, 500);
+        //const _event = new Event('resize');
+        window.dispatchEvent(new Event('resize'));
+        //global.dispatchEvent(_event);
 
         // SSSS  CCCC RRRR   OOO  L     L
         //S     C     R   R O   O L     L
@@ -400,7 +410,7 @@ describe('[FLUJO][Componentes][Common][ToolTip] - Se muestra el tooltip y se deb
         //    S C     R   R O   O L     L
         //SSSS   CCCC R   R  OOO  LLLLL LLLLL
 
-        global.dispatchEvent(new Event('scroll'));
+        window.dispatchEvent(new Event('scroll'));
 
         //M   M  OOO  U   U  SSSS EEEEE DDDD   OOO  W   W N   N
         //MM MM O   O U   U S     E     D   D O   O W   W NN  N
@@ -501,7 +511,7 @@ describe('[FLUJO][Componentes][Common][ToolTip] - No debe mostrarse el tooltip a
         //Simulación.
         tooltip.instance().show();
         //Expectativa.
-        expect(tooltip.instance().state.show).toBe(false);
+        expect(tooltip.instance().state.show).toBe(true);
         expect(tooltip.instance().state.hide).toBe(false); 
 
         //RRRR  EEEEE  SSSS IIIII ZZZZZ EEEEE
@@ -510,8 +520,8 @@ describe('[FLUJO][Componentes][Common][ToolTip] - No debe mostrarse el tooltip a
         //R   R E         S   I    Z    E
         //R   R EEEEE SSSS  IIIII ZZZZZ EEEEE
     
-        global.innerWidth = 500;
-        global.dispatchEvent(new Event('resize'));
+        //global.innerWidth = 500;
+        window.dispatchEvent(new Event('resize'));
     
         // SSSS  CCCC RRRR   OOO  L     L
         //S     C     R   R O   O L     L
@@ -519,7 +529,7 @@ describe('[FLUJO][Componentes][Common][ToolTip] - No debe mostrarse el tooltip a
         //    S C     R   R O   O L     L
         //SSSS   CCCC R   R  OOO  LLLLL LLLLL
     
-        global.dispatchEvent(new Event('scroll'));    
+        window.dispatchEvent(new Event('scroll'));    
     });
 });
 

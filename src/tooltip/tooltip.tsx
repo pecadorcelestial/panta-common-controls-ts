@@ -428,7 +428,7 @@ export const addToolTipSize = (tooltip: any, position: IPosition, anchor: any, a
     return { top, left };
 }
 
-interface IToolTipProps {
+interface IToolTipProps extends HTMLProps<HTMLDivElement> {
     //Obligatorios.
     anchorID: string;
     theme: Theme;
@@ -575,7 +575,7 @@ class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
 		//P     R   R O   O P       I   E     D   D A   A D   D E         S
 		//P     R   R  OOO  P     IIIII EEEEE DDDD  A   A DDDD  EEEEE SSSS
 		
-        let { anchorID, theme, at, elevation, offSet, children, ...rest } = this.props;
+        let { anchorID, theme, at, elevation, offSet, children, ref, as, ...rest } = this.props;
 
 		//RRRR  EEEEE  SSSS U   U L     TTTTT  AAA  DDDD   OOO
 		//R   R E     S     U   U L       T   A   A D   D O   O

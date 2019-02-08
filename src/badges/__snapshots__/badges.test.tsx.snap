@@ -38,8 +38,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="blue"
 />
 `;
 
@@ -81,8 +79,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="blue"
 />
 `;
 
@@ -124,8 +120,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="blue"
 />
 `;
 
@@ -167,8 +161,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="flatBlue"
 />
 `;
 
@@ -210,8 +202,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="flatBlue"
 />
 `;
 
@@ -253,8 +243,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="flatBlue"
 />
 `;
 
@@ -296,8 +284,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="flatGray"
 />
 `;
 
@@ -339,8 +325,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="flatGray"
 />
 `;
 
@@ -382,8 +366,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="flatGray"
 />
 `;
 
@@ -425,8 +407,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="flatGreen"
 />
 `;
 
@@ -468,8 +448,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="flatGreen"
 />
 `;
 
@@ -511,8 +489,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="flatGreen"
 />
 `;
 
@@ -554,8 +530,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="flatOrange"
 />
 `;
 
@@ -597,8 +571,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="flatOrange"
 />
 `;
 
@@ -640,8 +612,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="flatOrange"
 />
 `;
 
@@ -683,8 +653,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="flatRed"
 />
 `;
 
@@ -726,8 +694,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="flatRed"
 />
 `;
 
@@ -769,8 +735,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="flatRed"
 />
 `;
 
@@ -812,8 +776,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="flatWhite"
 />
 `;
 
@@ -855,8 +817,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="flatWhite"
 />
 `;
 
@@ -898,8 +858,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="flatWhite"
 />
 `;
 
@@ -941,8 +899,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="flatYellow"
 />
 `;
 
@@ -984,8 +940,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="flatYellow"
 />
 `;
 
@@ -1027,8 +981,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="flatYellow"
 />
 `;
 
@@ -1070,8 +1022,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="gray"
 />
 `;
 
@@ -1113,8 +1063,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="gray"
 />
 `;
 
@@ -1156,8 +1104,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="gray"
 />
 `;
 
@@ -1199,8 +1145,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="green"
 />
 `;
 
@@ -1242,8 +1186,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="green"
 />
 `;
 
@@ -1285,8 +1227,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="green"
 />
 `;
 
@@ -1328,8 +1268,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="orange"
 />
 `;
 
@@ -1371,8 +1309,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="orange"
 />
 `;
 
@@ -1414,8 +1350,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="orange"
 />
 `;
 
@@ -1457,8 +1391,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="red"
 />
 `;
 
@@ -1500,8 +1432,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="red"
 />
 `;
 
@@ -1543,8 +1473,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="red"
 />
 `;
 
@@ -1876,14 +1804,12 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
   style={
     Object {
       "float": "left",
       "width": "100%",
     }
   }
-  theme="red"
 >
   <svg
     alt="solidTimesCircle"
@@ -2224,14 +2150,12 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
   style={
     Object {
       "float": "left",
       "width": "100%",
     }
   }
-  theme="red"
 >
   <svg
     alt="solidTimesCircle"
@@ -2566,14 +2490,12 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
   style={
     Object {
       "float": "left",
       "width": "100%",
     }
   }
-  theme="red"
 >
   <svg
     alt="solidTimesCircle"
@@ -2630,8 +2552,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="secondaryRed"
 />
 `;
 
@@ -2673,8 +2593,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="secondaryRed"
 />
 `;
 
@@ -2716,8 +2634,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="secondaryRed"
 />
 `;
 
@@ -2759,8 +2675,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="small"
-  theme="yellow"
 />
 `;
 
@@ -2802,8 +2716,6 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="medium"
-  theme="yellow"
 />
 `;
 
@@ -2845,29 +2757,10 @@ exports[`[SNAPSHOT][Componentes][Common][Badge] - Badge con los siguientes temas
 
 <label
   className="c0"
-  size="big"
-  theme="yellow"
 />
 `;
 
 exports[`[SNAPSHOT][Componentes][Common][IconBadge] - Badge con los siguientes temas: red (usando un icono). Debe pintar el componente con el tema "red", tamaño "small" y con el icono "plus". 1`] = `
-.c3 {
-  display: inline-block;
-  fill: #FFF;
-  height: 50px;
-  margin: 3px 6px 0px 0px;
-  vertical-align: top;
-  width: 50px;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-}
-
-.c4 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
 .c1 {
   background-color: #FF456A;
   border: 1px solid #FF456A;
@@ -2903,293 +2796,13 @@ exports[`[SNAPSHOT][Componentes][Common][IconBadge] - Badge con los siguientes t
   width: 15px;
 }
 
-.c5 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c6 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
-.c7 .c2 {
-  fill: #FF456A;
-  height: 15px;
-  width: 15px;
-}
-
-.c8 .c2 {
-  fill: #FF456A;
-  height: 20px;
-  width: 20px;
-}
-
-.c9 .c2 {
-  fill: #FF456A;
-  height: 30px;
-  width: 30px;
-}
-
-.c10 .c2 {
-  fill: #FF456A;
-  height: 15px;
-  width: 15px;
-}
-
-.c11 .c2 {
-  fill: #FF456A;
-  height: 20px;
-  width: 20px;
-}
-
-.c12 .c2 {
-  fill: #FF456A;
-  height: 30px;
-  width: 30px;
-}
-
-.c13 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
-.c14 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c15 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
-.c16 .c2 {
-  fill: #1476FB;
-  height: 15px;
-  width: 15px;
-}
-
-.c17 .c2 {
-  fill: #1476FB;
-  height: 20px;
-  width: 20px;
-}
-
-.c18 .c2 {
-  fill: #1476FB;
-  height: 30px;
-  width: 30px;
-}
-
-.c19 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
-.c20 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c21 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
-.c22 .c2 {
-  fill: #4CB050;
-  height: 15px;
-  width: 15px;
-}
-
-.c23 .c2 {
-  fill: #4CB050;
-  height: 20px;
-  width: 20px;
-}
-
-.c24 .c2 {
-  fill: #4CB050;
-  height: 30px;
-  width: 30px;
-}
-
-.c25 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
-.c26 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c27 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
-.c28 .c2 {
-  fill: #FFE200;
-  height: 15px;
-  width: 15px;
-}
-
-.c29 .c2 {
-  fill: #FFE200;
-  height: 20px;
-  width: 20px;
-}
-
-.c30 .c2 {
-  fill: #FFE200;
-  height: 30px;
-  width: 30px;
-}
-
-.c31 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
-.c32 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c33 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
-.c34 .c2 {
-  fill: #858585;
-  height: 15px;
-  width: 15px;
-}
-
-.c35 .c2 {
-  fill: #858585;
-  height: 20px;
-  width: 20px;
-}
-
-.c36 .c2 {
-  fill: #858585;
-  height: 30px;
-  width: 30px;
-}
-
-.c37 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
-.c38 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c39 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
-.c40 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
-.c41 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c42 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
-.c43 .c2 {
-  fill: #FF9700;
-  height: 15px;
-  width: 15px;
-}
-
-.c44 .c2 {
-  fill: #FF9700;
-  height: 20px;
-  width: 20px;
-}
-
-.c45 .c2 {
-  fill: #FF9700;
-  height: 30px;
-  width: 30px;
-}
-
-.c46 .c2 {
-  fill: #FFF;
-  height: 15px;
-  width: 15px;
-}
-
-.c47 .c2 {
-  fill: #FFF;
-  height: 20px;
-  width: 20px;
-}
-
-.c48 .c2 {
-  fill: #FFF;
-  height: 30px;
-  width: 30px;
-}
-
 .c0 {
   padding: 0px 5px 0px 5px;
 }
 
 <label
   className="c0 c1"
-  icon="solidPlusCircle"
-  size="small"
-  theme="red"
->
-  <svg
-    alt="solidPlusCircle"
-    className="c2 c3"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<path d=\\"M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z\\"/>",
-      }
-    }
-    viewBox="0 0 512 512"
-    x="0px"
-    y="0px"
-  />
-</label>
+/>
 `;
 
 exports[`[SNAPSHOT][Componentes][Common][NotificationBadge] - Badge tipo notificación. Debe pintar el componente tipo notificación. 1`] = `
