@@ -132,9 +132,9 @@ describe("[MÉTODOS][Componentes][Common][MenuWithBlur] - Valida las llamadas a 
 	//U   U N  NN M   M O   O U   U N  NN   T
 	// UUU  N   N M   M  OOO   UUU  N   N   T
 
-    it('Se desmonta el componente.', () => {
-        component.unmount();
-    });
+    //it('Se desmonta el componente.', () => {
+    //    component.unmount();
+    //});
 });
 
 //Eventos (clics).
@@ -172,7 +172,7 @@ describe("[MÉTODOS][Componentes][Common][MenuWithBlur] - Valida los eventos den
         component = enzyme.mount(dummyPage, { attachTo: document.getElementById('root') });
     });
     afterEach(() => {
-        component.unmount();
+        //component.unmount();
     });
 
     // SSSS IIIII M   M U   U L      AAA   CCCC IIIII  OOO  N   N EEEEE  SSSS

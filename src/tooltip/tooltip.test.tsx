@@ -68,7 +68,7 @@ import 'jest-styled-components';
 //C     O   O M   M P     O   O N  NN E     N  NN   T   E         S
 // CCCC  OOO  M   M P      OOO  N   N EEEEE N   N   T   EEEEE SSSS
 
-import ToolTip, { addToolTipSize, At, Elevation } from './tooltip';
+import { ToolTip, addToolTipSize, At, Elevation } from './tooltip';
 
 //Snapshot #1 (Origen: arriba)(Elevación: 4).
 describe('[SNAPSHOT][Componentes][Common][ToolTip] - ToolTip (Origen: arriba)(Elevación: 4).', () => {
@@ -561,36 +561,36 @@ describe('[Funciones][Componentes][Common][ToolTip][addToolTipSize]: Debe devolv
         top: 0,
         width: 50 
     };
-    it('Debe devolver { top: 90, left: 175 } al enviar "top" como el origen.', () => {
-        let result = { top: 90, left: 175 };
+    it('Debe devolver { top: -110, left: -25 } al enviar "top" como el origen.', () => {
+        let result = { top: -110, left: -25 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'top', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 260, left: 175 } al enviar "bottom" como el origen.', () => {
-        let result = { top: 260, left: 175 };
+    it('Debe devolver { top: 60, left: -25 } al enviar "bottom" como el origen.', () => {
+        let result = { top: 60, left: -25 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'bottom', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 175, left: 90 } al enviar "left" como el origen.', () => {
-        let result = { top: 175, left: 90 };
+    it('Debe devolver { top: -25, left: -110 } al enviar "left" como el origen.', () => {
+        let result = { top: -25, left: -110 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'left', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 175, left: 260 } al enviar "right" como el origen.', () => {
-        let result = { top: 175, left: 260 };
+    it('Debe devolver { top: -25, left: 60 } al enviar "right" como el origen.', () => {
+        let result = { top: -25, left: 60 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'right', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 90, left: 145 } al enviar "top-left" como el origen.', () => {
-        let result = { top: 90, left: 145 };
+    it('Debe devolver { top: -110, left: -55 } al enviar "top-left" como el origen.', () => {
+        let result = { top: -110, left: -55 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'top-left', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 90, left: 205 } al enviar "top-right" como el origen.', () => {
-        let result = { top: 90, left: 205 };
+    it('Debe devolver { top: -110, left: 5 } al enviar "top-right" como el origen.', () => {
+        let result = { top: -110, left: 5 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'top-right', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 260, left: 175 } al enviar "bottom-left" como el origen.', () => {
-        let result = { top: 260, left: 145 };
+    it('Debe devolver { top: 60, left: -55 } al enviar "bottom-left" como el origen.', () => {
+        let result = { top: 60, left: -55 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'bottom-left', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 260, left: 175 } al enviar "bottom-right" como el origen.', () => {
-        let result = { top: 260, left: 205 };
+    it('Debe devolver { top: 60, left: 5 } al enviar "bottom-right" como el origen.', () => {
+        let result = { top: 60, left: 5 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'bottom-right', 0))).toEqual(JSON.stringify(result));
     });
 });
@@ -617,20 +617,20 @@ describe('[Funciones][Componentes][Common][ToolTip][addToolTipSize]: Debe devolv
         top: 0,
         width: 150 
     };
-    it('Debe devolver { top: 90, left: 225 } al enviar "top" como el origen.', () => {
-        let result = { top: 90, left: 225 };
+    it('Debe devolver { top: -110, left: 25 } al enviar "top" como el origen.', () => {
+        let result = { top: -110, left: 25 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'top', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 360, left: 225 } al enviar "bottom" como el origen.', () => {
-        let result = { top: 360, left: 225 };
+    it('Debe devolver { top: 160, left: 25 } al enviar "bottom" como el origen.', () => {
+        let result = { top: 160, left: 25 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'bottom', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 225, left: 90 } al enviar "left" como el origen.', () => {
-        let result = { top: 225, left: 90 };
+    it('Debe devolver { top: 25, left: -110 } al enviar "left" como el origen.', () => {
+        let result = { top: 25, left: -110 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'left', 0))).toEqual(JSON.stringify(result));
     });
-    it('Debe devolver { top: 225, left: 360 } al enviar "right" como el origen.', () => {
-        let result = { top: 225, left: 360 };
+    it('Debe devolver { top: 25, left: 160 } al enviar "right" como el origen.', () => {
+        let result = { top: 25, left: 160 };
         expect(JSON.stringify(addToolTipSize(tooltip, position, anchor, 'right', 0))).toEqual(JSON.stringify(result));
     });
 });

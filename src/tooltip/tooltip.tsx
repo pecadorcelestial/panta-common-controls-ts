@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { createRef, HTMLProps } from 'react';
+import React, { createRef, HTMLProps, HTMLAttributes } from 'react';
 import styled, { withTheme, StyledComponent } from 'styled-components';
 
 //FFFFF U   U N   N  CCCC IIIII  OOO  N   N EEEEE  SSSS
@@ -309,12 +309,12 @@ const PositionWrapper: StyledComponent<'div', any, IWrapperProps & HTMLProps<HTM
 	}
 `;
 
-interface ILayoutProps {
+interface ILayoutProps extends HTMLAttributes<HTMLDivElement> {
     at: At;
     show: boolean;
     theme: Theme;
 };
-const Layout: StyledComponent<'div', any, ILayoutProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, ILayoutProps, never> = styled.div`
     background-color: ${(props: ILayoutProps) => props.theme.content.backgroundColor};
     border: none;
     border-radius: 5px;
@@ -372,8 +372,10 @@ export const addToolTipSize = (tooltip: any, position: IPosition, anchor: any, a
     */
 
     //Se le suman / restan las cooredenadas del tooltip dependiendo de la posición deseada.
-    let top: number = position.top;
-    let left: number = position.left;
+    //let top: number = position.top;
+    //let left: number = position.left;
+    let top: number = anchor.top;
+    let left: number = anchor.left;
     switch(at) {
         case 'top':
             top -= (tooltip.height + 10 + offSet);
@@ -384,7 +386,8 @@ export const addToolTipSize = (tooltip: any, position: IPosition, anchor: any, a
             }
             break;
         case 'bottom':
-            top += (anchor.height + 10 + offSet);
+            //top += (anchor.height + 10 + offSet);
+            top = (anchor.top + anchor.height + 10 + offSet);
             if(anchor.width >= tooltip.width) {
                 left += ((anchor.width / 2) - (tooltip.width / 2));
             } else {
@@ -416,7 +419,9 @@ export const addToolTipSize = (tooltip: any, position: IPosition, anchor: any, a
             left += (anchor.width - (anchor.width / 2) - 20);
             break;
         case 'bottom-left':
-            top += (anchor.height + 10 + offSet);
+            //top += (anchor.height + 10 + offSet);
+            top = (anchor.top + anchor.height + 10 + offSet);
+            //left -= (tooltip.width - (anchor.width / 2) - 20);
             left -= (tooltip.width - (anchor.width / 2) - 20);
             break;
         case 'bottom-right':
@@ -428,7 +433,7 @@ export const addToolTipSize = (tooltip: any, position: IPosition, anchor: any, a
     return { top, left };
 }
 
-interface IToolTipProps extends HTMLProps<HTMLDivElement> {
+interface IToolTipProps extends HTMLAttributes<HTMLDivElement> {
     //Obligatorios.
     anchorID: string;
     theme: Theme;
@@ -442,7 +447,7 @@ interface IToolTipState {
     hide: boolean;
     position: IPosition;
 };
-class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
+export class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
 	//*** REFERENCIAS ***
 	private ToolTipWrapperInnerRef: React.RefObject<HTMLDivElement>;
 	//*** CONSTRUCTOR ***
@@ -522,6 +527,11 @@ class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
                 let tooltip: ClientRect | DOMRect = node.getBoundingClientRect();
                 let anchor: ClientRect | DOMRect = anchorRef.getBoundingClientRect();
                 position = addToolTipSize(tooltip, position, anchor, this.props.at as At, this.props.offSet || 0);
+                /*
+                console.log('[TOOLTIP][handleScroll] ToolTip: ', tooltip);
+                console.log('[TOOLTIP][handleScroll] Ancla: ', anchor);
+                console.log('[TOOLTIP][handleScroll] Posición: ', position);
+                */
             //}
             this.setState({ position });
         }
@@ -549,6 +559,7 @@ class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
 	//*** MÉTODOS ***
 	show = (): void => {
         if(!this.state.show) {
+            //NOTA IMPORTATE (POR QUE SE ME OLVIDA): Se debe mostrar primero el control o si no no se puede obtener su altura.
             this.setState({ show: true, hide: false }, () => {
                 let anchorRef: HTMLElement | null = document.getElementById(this.props.anchorID);
                 let node: HTMLDivElement | null = this.ToolTipWrapperInnerRef.current;
@@ -557,10 +568,15 @@ class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
                     let tooltip: ClientRect | DOMRect = node.getBoundingClientRect();
                     let anchor: ClientRect | DOMRect = anchorRef.getBoundingClientRect();
                     position = addToolTipSize(tooltip, position, anchor, this.props.at as At, this.props.offSet || 0);
+                    /*
+                    console.log('[TOOLTIP][show] ToolTip: ', tooltip);
+                    console.log('[TOOLTIP][show] Ancla: ', anchor);
+                    console.log('[TOOLTIP][show] Posición: ', position);                
+                    */
                     this.setState({ position });
                     node.focus();
                 }
-            });    
+            });
         }
 	}
 	hide = (): void => {
@@ -575,7 +591,7 @@ class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
 		//P     R   R O   O P       I   E     D   D A   A D   D E         S
 		//P     R   R  OOO  P     IIIII EEEEE DDDD  A   A DDDD  EEEEE SSSS
 		
-        let { anchorID, theme, at, elevation, offSet, children, ref, as, ...rest } = this.props;
+        let { anchorID, theme, at, elevation, offSet, children, ...rest } = this.props;
 
 		//RRRR  EEEEE  SSSS U   U L     TTTTT  AAA  DDDD   OOO
 		//R   R E     S     U   U L       T   A   A D   D O   O
@@ -595,4 +611,4 @@ class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
 	}	
 }
 
-export default withTheme(ToolTip);
+//export default withTheme(ToolTip);

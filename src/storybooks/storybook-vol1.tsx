@@ -16,6 +16,7 @@ import { MenuWithBlur } from '../menus/menus';
 import { Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter } from '../modals/modals';
 import { RadioButton, RadioButtonsGroup } from '../radiobuttons/radiobuttons';
 import { Tabs } from '../tabs/tabs';
+import { TextBox } from '../textboxes/textboxes';
 import { ToastNotification } from '../toastnotifications/toastnotifications';
 import { Link } from 'react-router-dom';
 
@@ -309,14 +310,34 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
             idIsNumeric: true
         };
   
+        const textboxProps = {
+            //Obligatorios.
+            title: 'User name:',
+            error: 'This field is required.',
+            maxLength: 100,
+            //Opcionales.
+            disabled: false,
+            id: 'user-id',
+            //inputType: 'text',
+            //valueType: 'text',
+            //Validación.
+            isRequired: true,
+            validRegEx: '',
+            //Funciones.
+            onChange: (event) => {console.log('[STORYBOOK][TEXTBOX][onChange] Value: ', event.target.value);},
+            onFocus: () => {console.log('[STORYBOOK][TEXTBOX][onFocus]');},
+            onKeyPress: (event) => {console.log('[STORYBOOK][TEXTBOX][onKeyPress] Key: ', event.which);}
+        };
+
 		//RRRR  EEEEE  SSSS U   U L     TTTTT  AAA  DDDD   OOO
 		//R   R E     S     U   U L       T   A   A D   D O   O
 		//RRRR  EEE    SSS  U   U L       T   AAAAA D   D O   O
 		//R   R E         S U   U L       T   A   A D   D O   O
 		//R   R EEEEE SSSS   UUU  LLLLL   T   A   A DDDD   OOO
-		
+        /*        
+        <MenuWithBlur title='Menu Title' options={menuOptions} theme='IENTC'>
+        */
         return(
-            <MenuWithBlur title='Menu Title' options={menuOptions} theme='IENTC'>
             <Layout>
                 <LeftColumn>
                     <Title>Animations:</Title>
@@ -479,6 +500,10 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
                             }}
                         />
                     </Row>
+                    <Title style={{ marginTop: '20px' }}>TextBox:</Title>
+                    <Row>
+                        <TextBox inputType={'date'} valueType={'text'} {...textboxProps}/>
+                    </Row>
                     <Title style={{ marginTop: '20px' }}>Tabs:</Title>
                     <Row>
                         <Tabs tabs={tabs} theme='blue' />
@@ -496,7 +521,6 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
                     </Row>
                 </RightColumn>
             </Layout>
-            </MenuWithBlur>
         );
     }
 }
