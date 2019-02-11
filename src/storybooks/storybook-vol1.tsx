@@ -12,10 +12,12 @@ import { CheckBox } from '../checkboxes/checkboxes';
 import { BasicSelect, AdvancedSelect } from '../dropdownlists/dropdownlists';
 import { CircularGraph } from '../graphs/graphs';
 import { Icon } from '../icons/icons';
+import { MenuWithBlur } from '../menus/menus';
 import { Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter } from '../modals/modals';
 import { RadioButton, RadioButtonsGroup } from '../radiobuttons/radiobuttons';
 import { Tabs } from '../tabs/tabs';
 import { ToastNotification } from '../toastnotifications/toastnotifications';
+import { Link } from 'react-router-dom';
 
 const Layout = styled.div`
     display: inline-block;
@@ -216,6 +218,12 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
             }
         ];
 
+        const menuOptions: Array<any> = [];
+        menuOptions.push(<Link to='/storybook-vol1' style={{ display: 'inline-block', textDecoration: 'none', width: '100%' }}><IconButton icon='solidTerminal' theme='blue' size='medium' style={{ borderRadius: '0px', width: '100%' }}>Storybook vol. 1</IconButton></Link>);
+        menuOptions.push(<Link to='/storybook-vol2' style={{ display: 'inline-block', textDecoration: 'none', width: '100%' }}><IconButton icon='solidSpinner' theme='green' size='medium' style={{ borderRadius: '0px', width: '100%' }}>Storybook vol. 2</IconButton></Link>);
+        menuOptions.push(<Link to='/storybook-vol3' style={{ display: 'inline-block', textDecoration: 'none', width: '100%' }}><IconButton icon='solidPalette' theme='red' size='medium' style={{ borderRadius: '0px', width: '100%' }}>Storybook vol. 3</IconButton></Link>);
+        menuOptions.push(<Link to='/storybook-vol4' style={{ display: 'inline-block', textDecoration: 'none', width: '100%' }}><IconButton icon='chartBar' theme='orange' size='medium' style={{ borderRadius: '0px', width: '100%' }}>Storybook vol. 4</IconButton></Link>);
+
         const radioButtons = [
             {
                 name: 'Option #1',
@@ -308,6 +316,7 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
 		//R   R EEEEE SSSS   UUU  LLLLL   T   A   A DDDD   OOO
 		
         return(
+            <MenuWithBlur title='Menu Title' options={menuOptions} theme='IENTC'>
             <Layout>
                 <LeftColumn>
                     <Title>Animations:</Title>
@@ -487,6 +496,7 @@ class StorybookVol1 extends Component<any, ISBVol1ClassState> {
                     </Row>
                 </RightColumn>
             </Layout>
+            </MenuWithBlur>
         );
     }
 }
