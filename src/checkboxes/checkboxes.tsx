@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { Component, HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 const Layout = styled.div`
@@ -11,7 +11,7 @@ const Layout = styled.div`
     width: auto;
 `;
 
-interface ICheckMarkProps extends HTMLAttributes<HTMLDivElement> {
+interface ICheckMarkProps extends React.HTMLAttributes<HTMLDivElement> {
     checked: boolean;
 };
 const CheckMark: StyledComponent<'div', any, ICheckMarkProps, never> = styled.div`
@@ -44,7 +44,7 @@ const CheckMark: StyledComponent<'div', any, ICheckMarkProps, never> = styled.di
         }` : ``}
 `;
 
-const Title: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const Title: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
     box-sizing: border-box;
     color: #242424;
     cursor: pointer;
@@ -71,7 +71,7 @@ interface ICheckBoxProps extends Omit<ICheckMarkProps, 'onChange'> {
 interface ICheckBoxState {
     checked: boolean;
 };
-export class CheckBox extends Component<ICheckBoxProps, ICheckBoxState> {
+export class CheckBox extends React.Component<ICheckBoxProps, ICheckBoxState> {
     //*** CONSTRUCTOR ***
     constructor(props: ICheckBoxProps) {
         super(props);

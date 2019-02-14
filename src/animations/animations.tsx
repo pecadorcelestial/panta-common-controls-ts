@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { createRef, HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { css, keyframes, Keyframes, StyledComponent } from 'styled-components';
 
 //L      OOO   AAA  DDDD  IIIII N   N  GGGG
@@ -422,7 +422,7 @@ interface IAnimationProps {
 	exit: boolean;
 	enterWithBounce: boolean;
 };
-const Animation: StyledComponent<'div', any, IAnimationProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Animation: StyledComponent<'div', any, IAnimationProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     display: block;
     height: auto;
@@ -435,7 +435,7 @@ const Animation: StyledComponent<'div', any, IAnimationProps & HTMLProps<HTMLDiv
 	animation: ${(props: IAnimationProps) => (props.entrance && !props.exit) ? animationEntrance : animationExit };
 `;
 
-interface IAnimateClassProps extends HTMLAttributes<HTMLDivElement> {
+interface IAnimateClassProps extends React.HTMLAttributes<HTMLDivElement> {
 	type: 'flip' | 'fade' | 'zoom';
 	from: 'left' | 'right' | 'top' | 'bottom' | 'vertical' | 'horizontal';
 	enterWithBounce: boolean;
@@ -452,7 +452,7 @@ export class Animate extends React.Component<IAnimateClassProps, IAnimateClassSt
 	constructor(props: any) {
 		super(props);
 		//Se crean las referencias.
-		this.AnimationInnerRef = createRef();
+		this.AnimationInnerRef = React.createRef();
 		//Se inicializa el estado.
 		this.state = {
             entrance: false,
@@ -591,7 +591,7 @@ export class Animate extends React.Component<IAnimateClassProps, IAnimateClassSt
 interface ICardProps {
 	flip: boolean;
 };
-const Card: StyledComponent<'div', any, ICardProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Card: StyledComponent<'div', any, ICardProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
 	box-sizing: border-box;
     display: block;
 	height: auto;
@@ -612,7 +612,7 @@ const Card: StyledComponent<'div', any, ICardProps & HTMLProps<HTMLDivElement>, 
     ${(props: ICardProps) => props.flip ? `transform: rotateY(180deg);` : ``}
 `;
 
-const Content: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Content: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     backface-visibility: hidden;
 	box-sizing: border-box;
 	display: inline-block;
@@ -622,11 +622,11 @@ const Content: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = s
     width: 100%;
 `;
 
-export const FrontContent: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled(Content)`
+export const FrontContent: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled(Content)`
 	
 `;
 
-export const BackContent: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled(Content)`
+export const BackContent: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled(Content)`
 	left: 0px;
 	position: absolute;
 	top: 0px;
@@ -638,7 +638,7 @@ interface ICardClassProps {};
 interface ICardClassState extends ICardProps {};
 export class FlipCard extends React.Component<ICardClassProps, ICardClassState> {
 	//*** CONSTRUCTOR ***
-    constructor(props: ICardClassProps & HTMLProps<HTMLDivElement>) {
+    constructor(props: ICardClassProps & React.HTMLProps<HTMLDivElement>) {
         super(props);
         this.state = {
             flip: false

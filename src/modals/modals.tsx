@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLAttributes, HTMLProps } from 'react';
+import * as React from 'react';
 import styled, { css, keyframes, Keyframes, StyledComponent, BaseThemedCssFunction } from 'styled-components';
 
 //Componentes locales.
@@ -8,7 +8,7 @@ import { RoundButton } from '../buttons/buttons';
 interface ILayoutProps {
 	lock: boolean;
 };
-const Layout: StyledComponent<'div', any, ILayoutProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, ILayoutProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
 	background-color: rgba(0,0,0,0.4);
     display: ${(props: ILayoutProps) => props.lock ? `block` : `none`};
 	height: 100%;
@@ -20,7 +20,7 @@ const Layout: StyledComponent<'div', any, ILayoutProps & HTMLProps<HTMLDivElemen
 	z-index: 997;
 `;
 
-const Mask: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Mask: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
 	background-color: rgba(0,0,0,0.4);
     display: block;
 	height: 100%;
@@ -81,7 +81,7 @@ const animationHide = css`
 	${hide} 0.6s ease-in-out forwards;
 `;
 
-interface IContentProps extends HTMLProps<HTMLDivElement> {
+interface IContentProps extends React.HTMLProps<HTMLDivElement> {
 	hide: boolean;
 	show: boolean;
 	showWithBounce: boolean;
@@ -109,7 +109,7 @@ const Content: StyledComponent<'div', any, IContentProps, never> = styled.div`
 	}
 `;
 
-export const ModalHeader: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+export const ModalHeader: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
 	background-color: #1476FB;
     box-sizing: border-box;
     display: inline-block;
@@ -120,7 +120,7 @@ export const ModalHeader: StyledComponent<'div', any, HTMLProps<HTMLDivElement>,
     width: 100%;
 `;
 
-export const ModalTitle: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+export const ModalTitle: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
     box-sizing: border-box;
 	color: #FFF;	
 	height: 24px;
@@ -148,7 +148,7 @@ export const ModalTitle: StyledComponent<'label', any, HTMLProps<HTMLLabelElemen
 	}
 `;
 
-export const ModalBody: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+export const ModalBody: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: #FFF;
     box-sizing: border-box;
     display: inline-block;
@@ -159,7 +159,7 @@ export const ModalBody: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, n
     width: 100%;
 `;
 
-export const ModalFooter: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+export const ModalFooter: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: #FFF;
     border-top: 1px solid #A7A7A7;
     box-sizing: border-box;
@@ -171,7 +171,7 @@ export const ModalFooter: StyledComponent<'div', any, HTMLProps<HTMLDivElement>,
     width: 100%;
 `;
 
-interface IModalProps extends HTMLAttributes<HTMLDivElement> {
+interface IModalProps extends React.HTMLAttributes<HTMLDivElement> {
 	showWithBounce?: boolean;
 };
 interface IModalState {

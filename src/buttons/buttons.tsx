@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 import { Icon } from '../icons/icons';
@@ -843,7 +843,7 @@ const iconSize = (size: Size): string => {
 };
 
 //type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 	theme: Theme;
 	size: Size;
 };
@@ -915,7 +915,7 @@ export const Button: StyledComponent<'button', any, IButtonProps, never> = style
 
 
 //NOTA: Este componente está preparado para modificar los estilos que sean necesarios.
-interface IIconButtonProps extends IButtonProps {
+export interface IIconButtonProps extends IButtonProps {
 	icon: string;
 };
 export const IconButton: StyledComponent<'button', any, IIconButtonProps, never> = styled((props: IIconButtonProps) => {

@@ -1,5 +1,5 @@
 //Módulos generales.
-import React, { Component, HTMLProps, HTMLAttributes, createRef, RefObject } from 'react';
+import * as React from 'react';
 import styled, { css, keyframes, Keyframes, StyledComponent } from 'styled-components';
 
 //Componentes locales.
@@ -40,7 +40,7 @@ const buttonTheme = (theme: Theme): string => {
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     height: auto;
     margin: 0px;
@@ -51,7 +51,7 @@ const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = st
 interface IHeaderProps {
     theme: Theme;
 };
-const Header: StyledComponent<'div', any, IHeaderProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Header: StyledComponent<'div', any, IHeaderProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: ${props => headerBackgroundColor(props.theme)};
     box-sizing: border-box;
     display: inline-block;
@@ -62,7 +62,7 @@ const Header: StyledComponent<'div', any, IHeaderProps & HTMLProps<HTMLDivElemen
     width: 100%;
 `;
 
-const IconWrapper: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const IconWrapper: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     cursor: pointer;
     float: left;
     height: 30px;
@@ -71,7 +71,7 @@ const IconWrapper: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never>
     width: 30px;
 `;
 
-const Title: StyledComponent<'h1', any, IHeaderProps & HTMLProps<HTMLTitleElement>, never> = styled.h1`
+const Title: StyledComponent<'h1', any, IHeaderProps & React.HTMLProps<HTMLTitleElement>, never> = styled.h1`
     color: ${props => titleColor(props.theme)};
     float: left;
     font-family: "Open Sans", sans-serif;	
@@ -122,7 +122,7 @@ interface IOptionsProps {
     hide: boolean;
     show: boolean;
 };
-const Options: StyledComponent<'div', any, IOptionsProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Options: StyledComponent<'div', any, IOptionsProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: transparent;
     box-sizing: border-box;
     display: block;
@@ -179,7 +179,7 @@ const animationUnblur = () => css`
 interface IContentProps {
     blur: boolean;
 };
-const Content: StyledComponent<'div', any, IContentProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Content: StyledComponent<'div', any, IContentProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     display: inline-block;
     float: left;
@@ -191,7 +191,7 @@ const Content: StyledComponent<'div', any, IContentProps & HTMLProps<HTMLDivElem
     animation: ${(props: IContentProps) => props.blur ? animationBlur : animationUnblur};
 `;
 
-interface IMenuProps extends HTMLAttributes<HTMLDivElement> {
+interface IMenuProps extends React.HTMLAttributes<HTMLDivElement> {
     //Obligatorios.
     options: Array<any>;
     title: string;
@@ -202,7 +202,7 @@ interface IMenuState {
     hide: boolean;
     show: boolean;
 };
-export class MenuWithBlur extends Component<IMenuProps, IMenuState> {
+export class MenuWithBlur extends React.Component<IMenuProps, IMenuState> {
     //*** PROPIEDADES ***
     private OptionsRef: Array<any> = [];
     private OptionsInnerRef: React.RefObject<HTMLDivElement>;
@@ -211,9 +211,9 @@ export class MenuWithBlur extends Component<IMenuProps, IMenuState> {
     constructor(props: IMenuProps) {
         super(props);
         //Se crean las referencias.
-        //this.OptionsRef[0] = createRef();
-        this.OptionsInnerRef = createRef();
-        this.HeaderInnerRef = createRef();
+        //this.OptionsRef[0] = React.createRef();
+        this.OptionsInnerRef = React.createRef();
+        this.HeaderInnerRef = React.createRef();
         this.state = {
             show: false,
             hide: false
@@ -288,7 +288,7 @@ export class MenuWithBlur extends Component<IMenuProps, IMenuState> {
                                         ref={(animate) => { 
                                             if(animate) {
                                                 //let newOption: RefObject<Animate> | null;
-                                                //newOption = createRef();
+                                                //newOption = React.createRef();
                                                 //newOption = animate;
                                                 this.OptionsRef.push(animate);
                                             }

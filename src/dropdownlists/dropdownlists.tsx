@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { createRef, HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { ThemeProvider, StyledComponent } from 'styled-components';
 import theme from 'styled-theming';
 
@@ -56,7 +56,7 @@ const optionColor: theme.ThemeSet = theme('status', {
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
 	box-sizing: border-box;
 	display: inline-block;
 	height: 60px;
@@ -67,7 +67,7 @@ const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = st
 	width: auto;
 `;
 
-const Title: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const Title: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
 	border-top: 0px solid transparent;
 	border-left: 0px solid transparent;
 	border-right: 0px solid transparent;
@@ -104,7 +104,7 @@ const Title: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
 	}
 `;
 
-const Select: StyledComponent<'select', any, HTMLProps<HTMLSelectElement>, never> = styled.select`
+const Select: StyledComponent<'select', any, React.HTMLProps<HTMLSelectElement>, never> = styled.select`
 	appearance: none;
 	background-color: transparent;
 	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 9' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3Eabajo%3C/title%3E%3Cpath d='M7.916 8.636a.718.718 0 0 1-.509-.21L.211 1.228A.719.719 0 1 1 1.229.21l6.687 6.688L14.604.21a.719.719 0 1 1 1.017 1.018L8.425 8.425a.718.718 0 0 1-.509.211' fill='%238B8B8B' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -145,7 +145,7 @@ const Select: StyledComponent<'select', any, HTMLProps<HTMLSelectElement>, never
 	}
 `;
 
-const Option: StyledComponent<'option', any, HTMLProps<HTMLOptionElement>, never> = styled.option`
+const Option: StyledComponent<'option', any, React.HTMLProps<HTMLOptionElement>, never> = styled.option`
 	color: ${optionColor};
 	font-family: "Open Sans", sans-serif;
 	font-size: 14px;
@@ -164,7 +164,7 @@ const Option: StyledComponent<'option', any, HTMLProps<HTMLOptionElement>, never
 	}
 `;
 
-const Error: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const Error: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
 	bottom: 0px;
 	color: #EF2525;
 	height: 15px;
@@ -190,7 +190,7 @@ const Error: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
 //C     O   O M   M P     O   O N  NN E     N  NN   T   E
 // CCCC  OOO  M   M P      OOO  N   N EEEEE N   N   T   EEEEE
 
-interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
+interface ISelectProps extends React.HTMLAttributes<HTMLDivElement> {
 	//Obligatorios.
 	title: string;		
 	error: string;
@@ -217,11 +217,11 @@ export class BasicSelect extends React.Component<ISelectProps, ISelectState> {
 	//*** REFERENCIAS ***
 	private ErrorRef: React.RefObject<HTMLLabelElement>;
 	//*** CONSTRUCTOR ***
-	constructor(props: ISelectProps & HTMLProps<HTMLSelectElement>) {
+	constructor(props: ISelectProps & React.HTMLProps<HTMLSelectElement>) {
 		super(props);
 
 		//Se crean las referencias.
-		this.ErrorRef = createRef();
+		this.ErrorRef = React.createRef();
 
 		//1. Se busca el elemento correspondiente al índice seleccionado.
 		let item: any;
@@ -450,12 +450,12 @@ export class BasicSelect extends React.Component<ISelectProps, ISelectState> {
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const ToogleButton: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, never> = styled.button`
+const ToogleButton: StyledComponent<'button', any, React.HTMLProps<HTMLButtonElement>, never> = styled.button`
 	background-color: transparent;
 	border: none;
 	border-radius: 0px;
 	color: ${selectColor};
-	cursor: ${(props: HTMLProps<HTMLButtonElement>) => props.disabled ? `default` : `pointer`};
+	cursor: ${(props: React.HTMLProps<HTMLButtonElement>) => props.disabled ? `default` : `pointer`};
 	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
 	font-weight: normal;
@@ -491,7 +491,7 @@ interface IToogleIconProps extends IIconProps {
 	disabled?: boolean;
 	show?: boolean;
 };
-const ToogleIcon: StyledComponent<any, any, IToogleIconProps & HTMLProps<SVGSVGElement>, never> = styled(Icon)`
+const ToogleIcon: StyledComponent<any, any, IToogleIconProps & React.HTMLProps<SVGSVGElement>, never> = styled(Icon)`
 	cursor: ${(props: IToogleIconProps) => props.disabled ? `default` : `pointer`};
 	fill: ${(props: IToogleIconProps) => props.disabled ? `#BFBFBF` : `#A7A7A7`};
 	pointer-events: ${(props: IToogleIconProps) => props.disabled ? `none` : `all`};
@@ -522,7 +522,7 @@ interface IAdvancedListProps {
 	show: boolean;
 	itemsType: ItemType;
 };
-const AdvancedList: StyledComponent<'ul', any, IAdvancedListProps & HTMLProps<HTMLUListElement>, never> = styled.ul`
+const AdvancedList: StyledComponent<'ul', any, IAdvancedListProps & React.HTMLProps<HTMLUListElement>, never> = styled.ul`
 	background-clip: padding-box;
 	background-color: #FFF;
 	border: 1px solid #BFBFBF;
@@ -590,8 +590,8 @@ export class AdvancedSelect extends React.Component<IAdvancedSelectProps, IAdvan
 		super(props);
 
 		//Se crean las referencias.
-		this.ErrorRef = createRef();
-		this.AdvancedSelectInnerRef = createRef();
+		this.ErrorRef = React.createRef();
+		this.AdvancedSelectInnerRef = React.createRef();
 
 		//1. Se busca el elemento correspondiente al índice seleccionado.
 		let item: any;
@@ -953,7 +953,7 @@ interface IListItemProps {
 	selected: boolean;
 	disabled: boolean;
 };
-const ListItem: StyledComponent<'li', any, IListItemProps & HTMLProps<HTMLLIElement>, never> = styled.li`
+const ListItem: StyledComponent<'li', any, IListItemProps & React.HTMLProps<HTMLLIElement>, never> = styled.li`
 	background-color: ${(props: IListItemProps) => props.selected ? `#A1C8FD` : `#FFF`};
 	cursor: pointer;	
 	height: 30px;
@@ -967,7 +967,7 @@ const ListItem: StyledComponent<'li', any, IListItemProps & HTMLProps<HTMLLIElem
 	}
 `;
 
-const ItemTitle: StyledComponent<'label', any, IListItemProps & HTMLProps<HTMLLabelElement>, never> = styled.label`
+const ItemTitle: StyledComponent<'label', any, IListItemProps & React.HTMLProps<HTMLLabelElement>, never> = styled.label`
 	box-sizing: border-box;
 	color: ${(props: IListItemProps ) => props.disabled ? `#BFBFBF` : `#242424`};
 	cursor: pointer;
@@ -992,7 +992,7 @@ const ItemTitle: StyledComponent<'label', any, IListItemProps & HTMLProps<HTMLLa
 	}
 `;
 
-const ItemDescription: StyledComponent<'label', any, IListItemProps & HTMLProps<HTMLLabelElement>, never> = styled.label`
+const ItemDescription: StyledComponent<'label', any, IListItemProps & React.HTMLProps<HTMLLabelElement>, never> = styled.label`
 	box-sizing: border-box;	
 	color: ${(props: IListItemProps) => props.disabled ? `#BFBFBF` : `#242424`};
 	cursor: pointer;
@@ -1018,7 +1018,7 @@ const ItemDescription: StyledComponent<'label', any, IListItemProps & HTMLProps<
 	}
 `;
 
-const ItemIcon: StyledComponent<any, any, IListItemProps & HTMLProps<SVGSVGElement>, never> = styled(Icon)`
+const ItemIcon: StyledComponent<any, any, IListItemProps & React.HTMLProps<SVGSVGElement>, never> = styled(Icon)`
 	cursor: pointer;
 	fill: ${(props: IListItemProps) => props.disabled ? `#BFBFBF` : `#242424`};
 	pointer-events: ${(props: IListItemProps) => props.disabled ? `none` : `all`};
@@ -1028,7 +1028,7 @@ const ItemIcon: StyledComponent<any, any, IListItemProps & HTMLProps<SVGSVGEleme
 	}
 `;
 
-const ItemIconWrapper: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const ItemIconWrapper: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
 	box-sizing: border-box;
 	cursor: pointer;
 	float: left;

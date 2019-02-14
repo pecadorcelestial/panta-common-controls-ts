@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { Component, HTMLProps } from 'react';
+import * as React from 'react';
 import styled, { ThemeProvider, StyledComponent } from 'styled-components';
 import theme from 'styled-theming';
 
@@ -30,7 +30,7 @@ const headerButtonsHover: theme.ThemeSet = theme('theme', {
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     min-height: 195px;
     margin: 0px;
@@ -39,7 +39,7 @@ const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = st
     width: 185px;
 `;
 
-const Header: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Header: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: ${headerBackgroundColor};
     box-sizing: border-box;
     height: 60px;
@@ -50,7 +50,7 @@ const Header: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = st
     width: 100%;
 `;
 
-const MonthYearButton: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, never> = styled.button`
+const MonthYearButton: StyledComponent<'button', any, React.HTMLProps<HTMLButtonElement>, never> = styled.button`
     background-color: transparent;
     border: none;
     border-radius: 5px;
@@ -75,7 +75,7 @@ const MonthYearButton: StyledComponent<'button', any, HTMLProps<HTMLButtonElemen
 	}
 `;
 
-const Row: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Row: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     display: flex;
     height: auto;
     justify-content: space-between;
@@ -84,7 +84,7 @@ const Row: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = style
     width: 100%;
 `;
 
-const WeekDayName: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const WeekDayName: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
     box-sizing: border-box;
     color: ${headerFontColor};
     font-family: "Open Sans", sans-serif;
@@ -106,7 +106,7 @@ background: repeating-linear-gradient(
 );
 */
 //135px
-const Body: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Body: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: #FFF;
     box-sizing: border-box;
     height: auto;
@@ -115,7 +115,7 @@ const Body: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styl
     width: 100%;
 `;
 
-const Previous: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, never> = styled.button`
+const Previous: StyledComponent<'button', any, React.HTMLProps<HTMLButtonElement>, never> = styled.button`
     background-color: transparent;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjkycHgiIGhlaWdodD0iMjkycHgiIHZpZXdCb3g9IjAgMCAyOTIuMzU5IDI5Mi4zNTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5Mi4zNTkgMjkyLjM1OTsgZmlsbDogd2hpdGU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48ZyB0cmFuc2Zvcm09InJvdGF0ZSgxODAsIDE0NiwgMTQ2KSI+PHBhdGggZD0iTTIyMi45NzksMTMzLjMzMUw5NS4wNzMsNS40MjRDOTEuNDU2LDEuODA3LDg3LjE3OCwwLDgyLjIyNiwwYy00Ljk1MiwwLTkuMjMzLDEuODA3LTEyLjg1LDUuNDI0Yy0zLjYxNywzLjYxNy01LjQyNCw3Ljg5OC01LjQyNCwxMi44NDd2MjU1LjgxM2MwLDQuOTQ4LDEuODA3LDkuMjMyLDUuNDI0LDEyLjg0N2MzLjYyMSwzLjYxNyw3LjkwMiw1LjQyOCwxMi44NSw1LjQyOGM0Ljk0OSwwLDkuMjMtMS44MTEsMTIuODQ3LTUuNDI4bDEyNy45MDYtMTI3LjkwN2MzLjYxNC0zLjYxMyw1LjQyOC03Ljg5Nyw1LjQyOC0xMi44NDdDMjI4LjQwNywxNDEuMjI5LDIyNi41OTQsMTM2Ljk0OCwyMjIuOTc5LDEzMy4zMzF6Ii8+PC9nPjwvc3ZnPg==");
     background-position: 1px center;
@@ -139,7 +139,7 @@ const Previous: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, nev
 	}
 `;
 
-const Next: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, never> = styled.button`
+const Next: StyledComponent<'button', any, React.HTMLProps<HTMLButtonElement>, never> = styled.button`
     background-color: transparent;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjkycHgiIGhlaWdodD0iMjkycHgiIHZpZXdCb3g9IjAgMCAyOTIuMzU5IDI5Mi4zNTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5Mi4zNTkgMjkyLjM1OTsgZmlsbDogd2hpdGU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz48cGF0aCBkPSJNMjIyLjk3OSwxMzMuMzMxTDk1LjA3Myw1LjQyNEM5MS40NTYsMS44MDcsODcuMTc4LDAsODIuMjI2LDBjLTQuOTUyLDAtOS4yMzMsMS44MDctMTIuODUsNS40MjRjLTMuNjE3LDMuNjE3LTUuNDI0LDcuODk4LTUuNDI0LDEyLjg0N3YyNTUuODEzYzAsNC45NDgsMS44MDcsOS4yMzIsNS40MjQsMTIuODQ3YzMuNjIxLDMuNjE3LDcuOTAyLDUuNDI4LDEyLjg1LDUuNDI4YzQuOTQ5LDAsOS4yMy0xLjgxMSwxMi44NDctNS40MjhsMTI3LjkwNi0xMjcuOTA3YzMuNjE0LTMuNjEzLDUuNDI4LTcuODk3LDUuNDI4LTEyLjg0N0MyMjguNDA3LDE0MS4yMjksMjI2LjU5NCwxMzYuOTQ4LDIyMi45NzksMTMzLjMzMXoiLz48L2c+PC9zdmc+");
     background-position: right 1px center;
@@ -180,9 +180,9 @@ interface IMonthState {
     days: Array<Date>;
     month: string;
 };
-export default class Month extends Component<IMonthProps, IMonthState> {
+export default class Month extends React.Component<IMonthProps, IMonthState> {
     //*** CONSTRUCTOR ***
-    constructor(props: IMonthProps & HTMLProps<HTMLDivElement>) {
+    constructor(props: IMonthProps & React.HTMLProps<HTMLDivElement>) {
         super(props);
         //NOTA: Los meses comienzan en 0, enero = 0.
         const month = getMonthName(this.props.innerDate, this.props.language);
@@ -316,7 +316,7 @@ const getDayButtonTheme = (state: 'selected' | 'different' | 'disabled' | 'norma
 interface IDayProps {
     state: 'selected' | 'different' | 'disabled' | 'normal';
 };
-const Day: StyledComponent<'button', any, IDayProps & HTMLProps<HTMLButtonElement>, never> = styled.button`
+const Day: StyledComponent<'button', any, IDayProps & React.HTMLProps<HTMLButtonElement>, never> = styled.button`
     border: none;
     border-radius: 50%;
     box-sizing: border-box;

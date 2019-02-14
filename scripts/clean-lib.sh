@@ -20,7 +20,19 @@ if [ -f "$index" ]
 then
     echo "Index file exists!"
     rm -f "$index"
-    echo "File is gone now!"
+    echo "Index file is gone now!"
 else
     echo "Index file doesn't exist!"
+fi
+
+index="$(pwd)/index.d.ts"
+echo $index
+
+if [ -f "$index" ]
+then
+    echo "Declarations file exists!"
+    rm -f "$index"
+    echo "Declarations file is gone now!"
+else
+    echo "Declarations file doesn't exist!"
 fi

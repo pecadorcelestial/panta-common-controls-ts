@@ -1,5 +1,5 @@
 //Modulos generales.
-import React, { Component, HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { css, keyframes, Keyframes, StyledComponent } from 'styled-components';
 
 type Theme = 'red' | 'blue' | 'green' | 'yellow' | 'gray' | 'orange' | 'black' | 'IENTC';
@@ -16,19 +16,19 @@ const backgroundColor = (theme: Theme): string => {
 	}
 };
 
-const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     justify-content: space-around;
     width: 200px;
 `;
 
-const SVG: StyledComponent<'svg', any, HTMLProps<SVGSVGElement>, never> = styled.svg`
+const SVG: StyledComponent<'svg', any, React.HTMLProps<SVGSVGElement>, never> = styled.svg`
     display: block;
     margin: 10px auto;
     max-height: 200px;
     max-width: 200px;
 `;
 
-const OutterPath: StyledComponent<'path', any, HTMLProps<SVGPathElement>, never> = styled.path`
+const OutterPath: StyledComponent<'path', any, React.HTMLProps<SVGPathElement>, never> = styled.path`
     fill: none;
     stroke: #EEE;
     stroke-width: 2.8;
@@ -51,7 +51,7 @@ interface IInnerPathProps {
     theme: Theme;
     percent: number;
 };
-const InnerPath: StyledComponent<'path', any, IInnerPathProps & HTMLProps<SVGPathElement>, never> = styled.path`
+const InnerPath: StyledComponent<'path', any, IInnerPathProps & React.HTMLProps<SVGPathElement>, never> = styled.path`
     fill: none;
     stroke-linecap: round;
     stroke: ${(props: IInnerPathProps) => backgroundColor(props.theme)};
@@ -60,7 +60,7 @@ const InnerPath: StyledComponent<'path', any, IInnerPathProps & HTMLProps<SVGPat
     animation: ${animationF};
 `;
 
-const Text: StyledComponent<'text', any, IInnerPathProps & HTMLProps<HTMLTextAreaElement>, never> = styled.text`
+const Text: StyledComponent<'text', any, IInnerPathProps & React.HTMLProps<HTMLTextAreaElement>, never> = styled.text`
     fill: #666;
     font-family: "Open Sans", sans-serif;
     font-size: 0.5em;
@@ -70,11 +70,11 @@ const Text: StyledComponent<'text', any, IInnerPathProps & HTMLProps<HTMLTextAre
     text-anchor: middle;
 `;
 
-interface ICircularGraphProps extends HTMLAttributes<HTMLDivElement> {
+interface ICircularGraphProps extends React.HTMLAttributes<HTMLDivElement> {
     theme: Theme;
     percent: number;
 };
-export class CircularGraph extends Component<ICircularGraphProps, {}> {
+export class CircularGraph extends React.Component<ICircularGraphProps, {}> {
     render() {
         let { theme, percent, ...rest } = this.props;
         return(

@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { css, ThemeProvider, keyframes, Keyframes, StyledComponent } from 'styled-components';
 import theme from 'styled-theming';
 
@@ -134,7 +134,7 @@ const mobileAnimationHide = (props: ILayoutProps) => css`
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-interface ILayoutProps extends HTMLProps<HTMLDivElement> {
+interface ILayoutProps extends React.HTMLProps<HTMLDivElement> {
 	from: From;
 	hide: boolean;
 	show: boolean;
@@ -177,7 +177,7 @@ const Layout: StyledComponent<'div', any, ILayoutProps, never> = styled.div`
 	}
 `;
 
-const CloseButton: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, never> = styled.button`
+const CloseButton: StyledComponent<'button', any, React.HTMLProps<HTMLButtonElement>, never> = styled.button`
     background-color: transparent;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMzM5LjE3N3B4IiBoZWlnaHQ9IjMzOS4xNzdweCIgdmlld0JveD0iMCAwIDMzOS4xNzcgMzM5LjE3NyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzM5LjE3NyAzMzkuMTc3OyBmaWxsOiB3aGl0ZTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGQ9Ik0yNDcuMjQ0LDE2OS41OWw4My45MzgtODMuOTM4YzUuMzMyLTUuMzI3LDcuOTk0LTExLjc5OCw3Ljk5NC0xOS40MTRjMC03LjYxNC0yLjY2OS0xNC4wODQtNy45OTQtMTkuNDE0TDI5Mi4zNTUsNy45OTNDMjg3LjAyNiwyLjY2NSwyODAuNTU2LDAsMjcyLjk0NCwwYy03LjYxNywwLTE0LjA4NSwyLjY2NS0xOS40MTcsNy45OTNMMTY5LjU5LDkxLjkzMUw4NS42NTEsNy45OTNDODAuMzI1LDIuNjY1LDczLjg1NCwwLDY2LjIzNywwYy03LjYxMSwwLTE0LjA4MywyLjY2NS0xOS40MTQsNy45OTNMNy45OTQsNDYuODI0QzIuNjY3LDUyLjE1LDAsNTguNjI0LDAsNjYuMjM4YzAsNy42MTYsMi42NjQsMTQuMDg0LDcuOTk0LDE5LjQxNGw4My45MzcsODMuOTM4TDcuOTk0LDI1My41MjhDMi42NjcsMjU4Ljg1OSwwLDI2NS4zMjcsMCwyNzIuOTQ1YzAsNy42MSwyLjY2NCwxNC4wODIsNy45OTQsMTkuNDFsMzguODMsMzguODI4YzUuMzMsNS4zMzIsMTEuODAzLDcuOTk0LDE5LjQxNCw3Ljk5NGM3LjYxNiwwLDE0LjA4NC0yLjY2OSwxOS40MTQtNy45OTRsODMuOTM5LTgzLjkzOGw4My45NDQsODMuOTM4YzUuMzI4LDUuMzMyLDExLjc5Myw3Ljk5NCwxOS40MTcsNy45OTRjNy42MTEsMCwxNC4wODItMi42NjksMTkuNDExLTcuOTk0bDM4LjgyLTM4LjgyOGM1LjMzMi01LjMyNCw3Ljk5NC0xMS44LDcuOTk0LTE5LjQxYzAtNy42MTgtMi42NjItMTQuMDg2LTcuOTk0LTE5LjQxN0wyNDcuMjQ0LDE2OS41OXoiLz48L2c+PC9zdmc+");
     background-position: center center;
@@ -193,7 +193,7 @@ const CloseButton: StyledComponent<'button', any, HTMLProps<HTMLButtonElement>, 
     width: 10px;
 `;
 
-const LeftColumn: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const LeftColumn: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     display: inline-block;
     float: left;
     height: auto;
@@ -202,7 +202,7 @@ const LeftColumn: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> 
     width: 40px;
 `;
 
-const RightColumn: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const RightColumn: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     display: inline-block;
     float: left;
@@ -212,7 +212,7 @@ const RightColumn: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never>
     width: calc(100% - 40px);
 `;
 
-const Title: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const Title: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
 	color: #FFF;
 	display: block;
 	font-family: "Open Sans", sans-serif;
@@ -225,7 +225,7 @@ const Title: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
     width: 100%;
 `;
 
-const Message: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const Message: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
 	color: #FFF;
 	display: block;
 	font-family: "Open Sans", sans-serif;
@@ -242,7 +242,7 @@ const Message: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never>
 export type Type = 'success' | 'error' | 'warning' | 'information';
 export type From = 'top' | 'bottom';
 export type Side = 'left' | 'right';
-interface IToastNotificationProps extends HTMLAttributes<HTMLDivElement> {
+interface IToastNotificationProps extends React.HTMLAttributes<HTMLDivElement> {
 	//Obligatorios.
     notificationType: Type;
     title: string;

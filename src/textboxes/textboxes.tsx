@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLProps, HTMLAttributes, RefObject, createRef } from 'react';
+import * as React from 'react';
 import styled, { ThemeProvider, StyledComponent } from 'styled-components';
 import theme from 'styled-theming';
 
@@ -47,7 +47,7 @@ const textboxColor: theme.ThemeSet = theme('status', {
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
 	display: inline-block;
 	height: 60px;
 	margin: 0px;
@@ -65,7 +65,7 @@ const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = st
 	}
 `;
 
-interface ITitleProps extends HTMLAttributes<HTMLLabelElement> {
+interface ITitleProps extends React.HTMLAttributes<HTMLLabelElement> {
 	notEmpty: boolean;
 };
 const Title: StyledComponent<'label', any, ITitleProps, never> = styled.label`
@@ -103,7 +103,7 @@ const Title: StyledComponent<'label', any, ITitleProps, never> = styled.label`
 	}	
 `;
 
-const Textbox: StyledComponent<'input', any, HTMLProps<HTMLInputElement>, never> = styled.input`
+const Textbox: StyledComponent<'input', any, React.HTMLProps<HTMLInputElement>, never> = styled.input`
 	background-color: transparent;
 	border: 0px solid transparent;
 	border-radius: 0px;
@@ -131,7 +131,7 @@ const Textbox: StyledComponent<'input', any, HTMLProps<HTMLInputElement>, never>
 	}
 `;
 
-const Error: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const Error: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
 	bottom: 0px;
 	color: #EF2525;
 	height: 15px;
@@ -151,7 +151,7 @@ const Error: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
 	z-index: 1;
 `;
 
-interface IIconProps extends HTMLAttributes<SVGSVGElement> {
+interface IIconProps extends React.HTMLAttributes<SVGSVGElement> {
 	disabled: boolean;
 }
 const ShowPasswordIcon: StyledComponent<'svg', any, IIconProps, never> = styled(Icon)`
@@ -175,7 +175,7 @@ const CalendarIcon: StyledComponent<'svg', any, IIconProps, never> = styled(Icon
 `;
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-interface ITextBoxProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'|'onFocus'|'onKeyPress'> {
+interface ITextBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'|'onFocus'|'onKeyPress'> {
 	//Obligatorios.
 	title: string;
 	error: string;
@@ -213,16 +213,16 @@ interface ITextBoxState {
 };
 export class TextBox extends React.Component<ITextBoxProps, ITextBoxState> {
 	//*** PROPIEDADES ***
-	private TextBoxInnerRef: RefObject<HTMLInputElement>;
-	private ErrorRef: RefObject<HTMLLabelElement>;
-	private ToolTipInnerRef: RefObject<HTMLDivElement & ToolTip>;
+	private TextBoxInnerRef: React.RefObject<HTMLInputElement>;
+	private ErrorRef: React.RefObject<HTMLLabelElement>;
+	private ToolTipInnerRef: React.RefObject<HTMLDivElement & ToolTip>;
 	//*** CONSTRUCTOR ***
 	constructor(props: ITextBoxProps) {
 		super(props);
 		//Se crean las referencias.
-		this.TextBoxInnerRef = createRef();
-		this.ErrorRef = createRef();
-		this.ToolTipInnerRef = createRef();
+		this.TextBoxInnerRef = React.createRef();
+		this.ErrorRef = React.createRef();
+		this.ToolTipInnerRef = React.createRef();
 		//Se define el estado inicial.
 		this.state = {
 			correct: false,

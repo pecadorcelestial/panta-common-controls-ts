@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { createRef, HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { withTheme, StyledComponent } from 'styled-components';
 
 //FFFFF U   U N   N  CCCC IIIII  OOO  N   N EEEEE  SSSS
@@ -298,7 +298,7 @@ interface IPosition {
 interface IWrapperProps {
     position: IPosition;
 };
-const PositionWrapper: StyledComponent<'div', any, IWrapperProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const PositionWrapper: StyledComponent<'div', any, IWrapperProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
     left: ${(props: {position: IPosition}) => props.position.left}px;
     position: fixed;
     top: ${(props: {position: IPosition}) => props.position.top}px;
@@ -309,7 +309,7 @@ const PositionWrapper: StyledComponent<'div', any, IWrapperProps & HTMLProps<HTM
 	}
 `;
 
-interface ILayoutProps extends HTMLAttributes<HTMLDivElement> {
+interface ILayoutProps extends React.HTMLAttributes<HTMLDivElement> {
     at: At;
     show: boolean;
     theme: Theme;
@@ -343,7 +343,7 @@ interface IContentProps {
     elevation: Elevation;
     theme: Theme;
 };
-const Content: StyledComponent<'div', any, IContentProps & HTMLProps<HTMLDivElement>, never> = styled.div`
+const Content: StyledComponent<'div', any, IContentProps & React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: ${(props: IContentProps) => props.theme.content.backgroundColor};
     border: 1px solid ${(props: IContentProps) => props.theme.content.borderColor};
     border-radius: 5px;
@@ -433,7 +433,7 @@ export const addToolTipSize = (tooltip: any, position: IPosition, anchor: any, a
     return { top, left };
 }
 
-interface IToolTipProps extends HTMLAttributes<HTMLDivElement> {
+interface IToolTipProps extends React.HTMLAttributes<HTMLDivElement> {
     //Obligatorios.
     anchorID: string;
     theme: Theme;
@@ -451,11 +451,11 @@ export class ToolTip extends React.Component<IToolTipProps, IToolTipState> {
 	//*** REFERENCIAS ***
 	private ToolTipWrapperInnerRef: React.RefObject<HTMLDivElement>;
 	//*** CONSTRUCTOR ***
-	constructor(props: IToolTipProps & HTMLProps<HTMLDivElement>) {
+	constructor(props: IToolTipProps & React.HTMLProps<HTMLDivElement>) {
         super(props);
         
 		//Se crean las referencias.
-		this.ToolTipWrapperInnerRef = createRef();
+		this.ToolTipWrapperInnerRef = React.createRef();
 
 		this.state = {
             show: false,

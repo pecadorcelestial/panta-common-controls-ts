@@ -1,8 +1,8 @@
 //Componentes generales.
-import React, { Component, HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
-const Input: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> = styled.label`
+const Input: StyledComponent<'label', any, React.HTMLProps<HTMLLabelElement>, never> = styled.label`
     box-sizing: border-box;
     color: #242424;
     cursor: pointer;
@@ -22,7 +22,7 @@ const Input: StyledComponent<'label', any, HTMLProps<HTMLLabelElement>, never> =
     white-space: nowrap;
 `;
 
-interface ICheckMarkProps extends HTMLAttributes<HTMLDivElement> {
+interface ICheckMarkProps extends React.HTMLAttributes<HTMLDivElement> {
     checked: boolean;
 };
 const CheckMark: StyledComponent<'div', any, ICheckMarkProps, never> = styled.div`
@@ -60,12 +60,12 @@ const CheckMark: StyledComponent<'div', any, ICheckMarkProps, never> = styled.di
 `;
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-interface IRadioButtonProps extends Omit<HTMLAttributes<HTMLLabelElement>, 'onChange'> {
+interface IRadioButtonProps extends Omit<React.HTMLAttributes<HTMLLabelElement>, 'onChange'> {
     checked: boolean;
     value: string | number;
     onChange?: (event: string | number) => void;
 };
-export class RadioButton extends Component<IRadioButtonProps, {}> {
+export class RadioButton extends React.Component<IRadioButtonProps, {}> {
     render() {
         let { checked, value, onChange, children, ...rest } = this.props;
         return(
@@ -83,7 +83,7 @@ export class RadioButton extends Component<IRadioButtonProps, {}> {
 //G   G R   R U   U P     O   O
 // GGGG R   R  UUU  P      OOO
 
-const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     height: auto;
     margin: 0px;
@@ -91,7 +91,7 @@ const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = st
     width: auto;
 `;
 
-const Buttons: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Buttons: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -105,7 +105,7 @@ interface IOption {
     name: string;
     value: string | number;
 };
-interface IRadioButtonsGroupProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+interface IRadioButtonsGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     options: Array<IOption>;
     selectedValue: string | number;
     onChange?: Function;
@@ -113,7 +113,7 @@ interface IRadioButtonsGroupProps extends Omit<HTMLAttributes<HTMLDivElement>, '
 interface IRadioButtonsGroupState {
     selectedValue: string | number;
 };
-export class RadioButtonsGroup extends Component<IRadioButtonsGroupProps, IRadioButtonsGroupState> {
+export class RadioButtonsGroup extends React.Component<IRadioButtonsGroupProps, IRadioButtonsGroupState> {
     //*** CONSTRUCTOR ***
     constructor(props: IRadioButtonsGroupProps) {
         super(props);

@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { HTMLProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 import { Icon, IIconProps } from '../icons/icons';
@@ -279,7 +279,7 @@ const CloseButton: StyledComponent<"svg", any, ICloseButtonProps & React.SVGProp
 `;
 
 //type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-interface IBadgeProps extends HTMLAttributes<HTMLLabelElement> {
+export interface IBadgeProps extends React.HTMLAttributes<HTMLLabelElement> {
 	size: Size;
 	theme: Theme;
 	closeOnClick?: Function;
@@ -339,22 +339,22 @@ export const Badge: StyledComponent<'label', any, IBadgeProps, never> = styled((
 //https://github.com/styled-components/styled-components/issues/305
 
 //NOTA: Este componente está preparado para modificar los estilos que sean necesarios.
-interface IIconBadge extends HTMLAttributes<HTMLLabelElement> {
+export interface IIconBadgeProps extends React.HTMLAttributes<HTMLLabelElement> {
 	icon: string;
 	size: Size;
 	theme: Theme;
 	closeOnClick?: Function;
 	showCloseButton?: boolean;
 };
-//interface IIconBadge extends IIconProps{};
-export const IconBadge: StyledComponent<'label', any, IIconBadge, never> = styled((props: IIconBadge) => {
+//interface IIconBadgeProps extends IIconProps{};
+export const IconBadge: StyledComponent<'label', any, IIconBadgeProps, never> = styled((props: IIconBadgeProps) => {
 	let { className, theme, size, icon, closeOnClick, children, ...rest} = props;
 	return <Badge className={className} theme={theme} size={size} closeOnClick={closeOnClick} {...rest}>{children}</Badge>;
 })`
     padding: 0px 5px 0px 5px;
 `;
 
-const NotificationContainer: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const NotificationContainer: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;    
     display: inline-block;
     height: auto;
@@ -364,7 +364,7 @@ const NotificationContainer: StyledComponent<'div', any, HTMLProps<HTMLDivElemen
     width: auto;
 `;
 
-const NotificationBubble: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const NotificationBubble: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     background-color: #FF456A;
     box-sizing: border-box;
     border-radius: 50%;
@@ -391,10 +391,10 @@ const NotificationBubble: StyledComponent<'div', any, HTMLProps<HTMLDivElement>,
 //N  NN O   O   T     I   F       I   C     A   A C       I   O   O N  NN E         S
 //N   N  OOO    T   IIIII F     IIIII  CCCC A   A  CCCC IIIII  OOO  N   N EEEEE SSSS
 
-interface INotificationBadgeProps {
+export interface INotificationBadgeProps {
 	counter: string;
 };
-export const NotificationBadge: StyledComponent<'div', any, INotificationBadgeProps & HTMLProps<HTMLDivElement>, never> = styled((props: any) => {
+export const NotificationBadge: StyledComponent<'div', any, INotificationBadgeProps & React.HTMLProps<HTMLDivElement>, never> = styled((props: any) => {
 	let { className, children, ...rest} = props;
     return <NotificationContainer className={className} {...rest}>
         <NotificationBubble>{props.counter}</NotificationBubble>

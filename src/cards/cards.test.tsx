@@ -77,9 +77,11 @@ describe('[SNAPSHOT][Componentes][Common][Card] - Tarjeta con 7 tipos diferentes
 		expect(component).toMatchSnapshot();
     });
     //Elevación: N/A.
+    /*
 	it('Debe pintar el componente sin elevación en la sombra.', () => {
         //Snapshot [N/A].
         let component = renderer.create(<Card/>).toJSON();
 		expect(component).toMatchSnapshot();
     });
+    */
 });

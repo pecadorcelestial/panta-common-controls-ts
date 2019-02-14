@@ -1,5 +1,5 @@
 //Componentes generales.
-import React, { Component, HTMLProps } from 'react';
+import * as React from 'react';
 import styled, { StyledComponent } from 'styled-components';
 
 import Month from './month';
@@ -12,7 +12,7 @@ import Years from './years';
 //E         S   T     I   L     O   O     S
 //EEEEE SSSS    T   IIIII LLLLL  OOO  SSSS
 
-const Layout: StyledComponent<'div', any, HTMLProps<HTMLDivElement>, never> = styled.div`
+const Layout: StyledComponent<'div', any, React.HTMLProps<HTMLDivElement>, never> = styled.div`
     box-sizing: border-box;
     margin: 0px;
     min-height: 195px;
@@ -37,9 +37,9 @@ interface ICalendarState {
     mode: 'month' | 'months' | 'years';
     selectedDate: Date;
 };
-export class Calendar extends Component<ICalendarProps, ICalendarState> {
+export class Calendar extends React.Component<ICalendarProps, ICalendarState> {
     //*** CONSTRUCTOR ***
-    constructor(props: ICalendarProps & HTMLProps<HTMLDivElement>) {
+    constructor(props: ICalendarProps & React.HTMLProps<HTMLDivElement>) {
         super(props);
         //Se inicializan las variables necesarias.
         //Fecha seleccionada.
