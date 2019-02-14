@@ -64,6 +64,7 @@
     "./src/app.tsx",
     "./src/client.tsx",
     "./src/routes.ts",
+    "./src/**/*.test.tsx",
     "./src/storybooks/*.tsx"
   ]
 }

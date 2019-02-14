@@ -13,10 +13,7 @@ scripts/
 src/
 stories/
 views/
-.babelrc
 jest.config.js
 package-lock.json
-server-body.js
-server.js
-webpack.dev.config.js
+server.ts
 webpack.config.js
