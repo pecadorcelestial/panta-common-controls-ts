@@ -13,7 +13,9 @@ scripts/
 src/
 stories/
 views/
+index.ts
 jest.config.js
 package-lock.json
 server.ts
+tsconfig.json
 webpack.config.js

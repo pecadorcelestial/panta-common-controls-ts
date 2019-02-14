@@ -12,3 +12,15 @@ then
 else
     echo "Directory doesn't exist!"
 fi
+
+index="$(pwd)/index.js"
+echo $index
+
+if [ -f "$index" ]
+then
+    echo "Index file exists!"
+    rm -f "$index"
+    echo "File is gone now!"
+else
+    echo "Index file doesn't exist!"
+fi
