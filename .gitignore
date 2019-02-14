@@ -6,3 +6,4 @@ lib/
 node_modules/
 src/icons/icons-lib-*.js
 index.js
+index.d.ts
