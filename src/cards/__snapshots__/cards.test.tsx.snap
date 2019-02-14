@@ -210,37 +210,3 @@ exports[`[SNAPSHOT][Componentes][Common][Card] - Tarjeta con 7 tipos diferentes 
   elevation={32}
 />
 `;
-
-exports[`[SNAPSHOT][Componentes][Common][Card] - Tarjeta con 7 tipos diferentes de elevacion en la sombra. Debe pintar el componente sin elevación en la sombra. 1`] = `
-.c0 {
-  background-color: #FFF;
-  border-radius: 5px;
-  box-sizing: border-box;
-  height: auto;
-  margin: 0px;
-  overflow: hidden;
-  padding: 0px;
-  width: auto;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  box-shadow: 0px 0px 32px 1px rgba(0,0,0,0.1);
-}
-
-@media screen and (max-width:767px) {
-  .c0 {
-    border-radius: 0px;
-    box-shadow: unset;
-  }
-}
-
-@media screen and (min-width:768px) and (max-width:991px) {
-  .c0 {
-    border-radius: 0px;
-    box-shadow: unset;
-  }
-}
-
-<div
-  className="c0"
-/>
-`;
