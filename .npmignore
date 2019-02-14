@@ -3,6 +3,7 @@
 bin/
 coverage/
 lib/**/*.test.js
+lib/**/*.map.js
 lib/app.js
 lib/client.js
 lib/icons/icons-lib-*.js
